@@ -16,7 +16,7 @@ Coded by www.creative-tim.com
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-// import Icon from "@mui/material/Icon";
+import Icon from "@mui/material/Icon";
 
 // Material Kit 2 PRO React components
 import MKBox from "components/MKBox";
@@ -28,7 +28,6 @@ import SimplePricingCard from "examples/Cards/PricingCards/SimplePricingCard";
 
 // Images
 import bgPattern from "assets/images/shapes/pattern-lines.svg";
-import stripe from "assets/images/stripe-badge-white.png";
 
 function Pricing() {
   return (
@@ -126,7 +125,20 @@ function Pricing() {
             flexDirection="column"
             sx={{ alignItems: "center", paddingTop: "30px" }}
           >
-            <img src={stripe} alt="stripe" height="132px" width="404px" />
+            <Grid container item xs={12} flexDirection="column" sx={{ textAlign: "center" }}>
+              <MKTypography variant="body2" color="text" mt={6} mb={3} mx="auto">
+                <Icon>lock</Icon> Secured Payment by <b>Stripe</b> with:
+              </MKTypography>
+              <MKTypography variant="body2" color="text" mb={2} mx="auto">
+                <i className="fa fa-cc-paypal fa-2x" />
+                &nbsp;
+                <i className="fa fa-cc-visa fa-2x" />
+                &nbsp;
+                <i className="fa fa-cc-mastercard fa-2x" />
+                &nbsp;
+                <i className="fa fa-cc-amex fa-2x" />
+              </MKTypography>
+            </Grid>
           </Grid>
         </Container>
       </MKBox>
