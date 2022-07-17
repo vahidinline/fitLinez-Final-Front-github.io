@@ -50,15 +50,21 @@ function Calculator() {
   }
 
   return (
-    <MKBox component="section" py={12}>
+    <MKBox component="section" py={12} alignItems="center" justifyContent="center">
       <Grid container item justifyContent="center" xs={10} lg={7} mx="auto" textAlign="center">
-        {bmi > 0 && (
-          <MKTypography variant="h3" mb={1}>
-            {bmi}
-          </MKTypography>
-        )}
+        <MKTypography variant="h3" mb={1}>
+          BMI Calculator
+        </MKTypography>
       </Grid>
-      <Grid container item xs={12} lg={7} sx={{ mx: "auto" }}>
+      <Grid
+        container
+        item
+        xs={12}
+        md={6}
+        sx={{ mx: "auto" }}
+        alignItems="center"
+        justifyContent="center"
+      >
         <form onSubmit={handleSubmit}>
           <MKBox width="100%" component="form" method="post" autocomplete="off">
             <MKBox p={3}>
@@ -66,10 +72,10 @@ function Calculator() {
                 {/* <Grid item xs={12} md={6}>
                   <MKInput name="gender" onChange={(e) => setGender(e.target.value)} fullWidth />
                 </Grid> */}
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={12}>
                   <MKInput name="height" onChange={(e) => setHeight(e.target.value)} fullWidth />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={12}>
                   <MKInput name="weight" onChange={(e) => setWeight(e.target.value)} fullWidth />
                 </Grid>
               </Grid>
@@ -80,9 +86,25 @@ function Calculator() {
           <MKInput name="age" onChange={(e) => setAge(e.target.value)} />
           <MKInput name="hip" onChange={(e) => setHip(e.target.value)} />
           <MKInput name="activity" onChange={(e) => setActivity(e.target.value)} /> */}
-
-          <MKButton type="submit">Calculate</MKButton>
+          <Grid item xs={12} md={6}>
+            <MKButton type="submit">Calculate</MKButton>
+          </Grid>
         </form>
+      </Grid>
+      <Grid
+        container
+        item
+        xs={12}
+        md={6}
+        sx={{ mx: "auto" }}
+        alignItems="center"
+        justifyContent="center"
+      >
+        {bmi > 0 && (
+          <MKTypography variant="h3" mb={1}>
+            BMI is {bmi}
+          </MKTypography>
+        )}
       </Grid>
     </MKBox>
   );

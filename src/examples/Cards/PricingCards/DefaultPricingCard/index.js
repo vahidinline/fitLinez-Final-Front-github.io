@@ -87,7 +87,7 @@ function DefaultPricingCard({ color, badge, price, specifications, action, shado
         </MKBox>
         <MKBox pt={3} pb={2} px={2} textAlign="center">
           <MKBox my={1}>
-            <MKTypography variant="h1" color={color === "white" ? "dark" : "white"}>
+            <MKTypography variant="h3" color={color === "white" ? "dark" : "white"}>
               <MKTypography
                 display="inline"
                 component="small"
