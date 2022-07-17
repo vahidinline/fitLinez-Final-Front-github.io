@@ -74,7 +74,17 @@ function Presentation() {
         }}
       >
         <Container>
-          <Grid container item xs={12} lg={7} justifyContent="center" mx="auto">
+          <Grid
+            container
+            item
+            xs={12}
+            lg={7}
+            justifyContent="center"
+            mx="auto"
+            sx={{
+              overflow: "visible",
+            }}
+          >
             <MKTypography
               variant="h1"
               color="white"

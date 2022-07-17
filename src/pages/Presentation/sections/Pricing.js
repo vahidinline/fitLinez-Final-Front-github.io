@@ -40,13 +40,13 @@ function Pricing() {
           position="absolute"
           top={0}
           left={0}
-          width={{ xs: "auto", lg: "100%" }}
+          width={{ xs: "100%", lg: "100%" }}
           height={{ xs: "100%", lg: "auto" }}
           opacity={0.6}
         />
         <Container>
           <Grid container justifyContent="center" sx={{ pt: 6, pb: 18 }}>
-            <Grid item xs={12} md={7} sx={{ textAlign: "center" }}>
+            <Grid item xs={6} md={6} sx={{ textAlign: "center" }}>
               <MKBadge badgeContent="pricing" color="dark" size="sm" container sx={{ mb: 1 }} />
               <MKTypography variant="h3" color="white" mb={1}>
                 Ready to get FIT?
