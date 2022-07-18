@@ -78,7 +78,7 @@ function Pricing() {
                     id="eur"
                     label={
                       <MKBox py={0.5} px={2} color="inherit">
-                        EUR
+                        Stripe Payment
                       </MKBox>
                     }
                   />
@@ -86,7 +86,7 @@ function Pricing() {
                     id="rial"
                     label={
                       <MKBox py={0.5} px={2} color="inherit">
-                        Rial
+                        پرداخت ریالی از طریق شبکه شتاب
                       </MKBox>
                     }
                   />
@@ -98,19 +98,25 @@ function Pricing() {
             <Grid container spacing={3} justifyContent="center">
               <Grid item xs={12} lg={4}>
                 <DefaultPricingCard
-                  badge={{ color: "light", label: "starter" }}
+                  badge={{ color: "light", label: tabType === "rial" ? "مشاوره" : "Consultant" }}
                   price={{
-                    currency: tabType === "rial" ? "ریال" : "€",
-                    value: tabType === "rial" ? "5,000,000" : 17,
-                    type: "mo",
+                    currency: tabType === "rial" ? "تومان" : "€",
+                    value: tabType === "rial" ? "۵۰۰،۰۰۰" : 17,
+                    type: tabType === "rial" ? "یک جلسه" : "One-Session",
                   }}
                   specifications={[
                     {
-                      label: "30-minute nutrition and lifeStyle consultation session with Azar",
+                      label:
+                        tabType === "rial"
+                          ? "یک جلسه‌ی سی دقیقه‌ای تصویری با آذر"
+                          : "30 minutes weekly One-by-One nutrition coaching video calls",
                       includes: true,
                     },
                     {
-                      label: "Centering on teaching you about smarter meal plan",
+                      label:
+                        tabType === "rial"
+                          ? "مشاوره تغذیه و لایف استایل اختصاصی"
+                          : "Centering on teaching you about smarter meal plan",
                       includes: true,
                     },
                   ]}
@@ -120,32 +126,43 @@ function Pricing() {
                       tabType === "eur"
                         ? "https://buy.stripe.com/dR6aFU0N62h0aMU8wB"
                         : "https://zarinp.al/423697",
-                    color: "dark",
-                    label: tabType === "eur" ? "join" : "ثبت نام",
+                    color: "info",
+                    label: tabType === "rial" ? "خرید " : "Buy",
                   }}
                 />
               </Grid>
               <Grid item xs={12} lg={4}>
                 <DefaultPricingCard
-                  color="dark"
-                  badge={{ color: "info", label: "premium" }}
+                  badge={{ color: "info", label: tabType === "rial" ? "دوره یک ماهه" : "Monthly" }}
                   price={{
-                    currency: tabType === "rial" ? "ریال" : "€",
-                    value: tabType === "rial" ? "29,000,000" : 97,
-                    type: "mo",
+                    currency: tabType === "rial" ? "تومان" : "€",
+                    value: tabType === "rial" ? "۲،۹۰۰،۰۰۰" : 97,
+                    type: tabType === "rial" ? "در ماه" : "monthly",
                   }}
                   specifications={[
                     {
-                      label: "30 minutes weekly One-by-One nutrition coaching video calls",
+                      label:
+                        tabType === "rial"
+                          ? "چهار جلسه،ی سی دقیقه‌ای تصویری با آذر"
+                          : "30 minutes weekly One-by-One nutrition coaching video calls",
                       includes: true,
                     },
-                    { label: "Centering on teaching you about smarter meal plan", includes: true },
                     {
-                      label: "Supporting you to clean weight-loss, be shape and gain more muscle",
+                      label:
+                        tabType === "rial"
+                          ? "مشاوره تغذیه و لایف استایل اختصاصی"
+                          : "Centering on teaching you about smarter meal plan",
+                      includes: true,
+                    },
+                    {
+                      label:
+                        tabType === "rial"
+                          ? "با توجه به نیاز و هدف متقاضی"
+                          : "Supporting you to clean weight-loss, be shape and gain more muscle",
                       includes: true,
                     },
 
-                    { label: "Chat Support", includes: true },
+                    { label: tabType === "rial" ? "پشتیبانی" : "Chat Support", includes: true },
                   ]}
                   action={{
                     type: "external",
@@ -154,28 +171,43 @@ function Pricing() {
                         ? "https://buy.stripe.com/dR64hw1Ra9Js4owcMQ"
                         : "https://zarinp.al/423704",
                     color: "info",
-                    label: tabType === "eur" ? "join" : "ثبت نام",
+                    label: tabType === "rial" ? "خرید " : "Buy",
                   }}
                 />
               </Grid>
               <Grid item xs={12} lg={4}>
                 <DefaultPricingCard
-                  badge={{ color: "light", label: "enterprise" }}
+                  color="dark"
+                  badge={{ color: "light", label: tabType === "rial" ? "دوره سه ماهه" : "3-Month" }}
                   price={{
-                    currency: tabType === "rial" ? "ریال" : "€",
-                    value: tabType === "rial" ? "69,750,000" : 235,
-                    type: "mo",
+                    currency: tabType === "rial" ? "تومان" : "€",
+                    value: tabType === "rial" ? "۶،۹۷۵،۰۰۰" : 235,
+                    type: tabType === "rial" ? "سه ماهه" : "3-Month",
                   }}
                   specifications={[
                     {
-                      label: "30 minutes weekly One-by-One nutrition coaching video calls",
+                      label:
+                        tabType === "rial"
+                          ? "دوازده جلسه‌ی سی دقیقه‌ای  تصویری با آذر"
+                          : "30 minutes weekly One-by-One nutrition coaching video calls",
                       includes: true,
                     },
-                    { label: "Centering on teaching you about smarter meal plan", includes: true },
                     {
-                      label: "Supporting you to clean weight-loss, be shape and gain more muscle",
+                      label:
+                        tabType === "rial"
+                          ? "مشاوره تغذیه و لایف استایل اختصاصی"
+                          : "Centering on teaching you about smarter meal plan",
                       includes: true,
                     },
+                    {
+                      label:
+                        tabType === "rial"
+                          ? "با توجه به نیاز و هدف متقاضی"
+                          : "Supporting you to clean weight-loss, be shape and gain more muscle",
+                      includes: true,
+                    },
+
+                    { label: tabType === "rial" ? "پشتیبانی" : "Chat Support", includes: true },
                   ]}
                   action={{
                     type: "external",
@@ -183,8 +215,8 @@ function Pricing() {
                       tabType === "eur"
                         ? "https://buy.stripe.com/4gwaFU3ZicVE3ks6ou"
                         : "https://zarinp.al/423709",
-                    color: "dark",
-                    label: tabType === "eur" ? "join" : "ثبت نام",
+                    color: "light",
+                    label: tabType === "rial" ? "خرید " : "Buy",
                   }}
                 />
               </Grid>

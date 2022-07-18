@@ -36,7 +36,7 @@ import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 // import AuthPages from "pages/Presentation/sections/AuthPages";
 // import Pages from "pages/Presentation/sections/Pages";
 // import Testimonials from "pages/Presentation/sections/Testimonials";
-import Pricing from "pages/Presentation/sections/Pricing";
+import Pricing from "pages/Company/Pricing/sections/Pricing";
 
 // Presentation page components
 import BuiltByDevelopers from "pages/Presentation/components/BuiltByDevelopers";
@@ -47,7 +47,7 @@ import routes from "routes";
 
 // Images
 import bgImage from "assets/images/bg-presentation.jpg";
-import Calculator from "./sections/calculator";
+// import Calculator from "./sections/calculator";
 
 function Presentation() {
   return (
@@ -132,7 +132,7 @@ function Presentation() {
         <Container sx={{ mt: 6 }}>
           <BuiltByDevelopers />
         </Container>
-        <Calculator />
+        {/* <Calculator /> */}
         <Container>
           <Grid container spacing={3}>
             <Grid item xs={12} lg={4}>

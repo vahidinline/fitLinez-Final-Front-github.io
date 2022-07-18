@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // @mui material components
-import Grid from "@mui/material/Grid";
+import { Grid, Select, MenuItem } from "@mui/material";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -25,6 +25,21 @@ function Calculator() {
   const [bfp, setBfp] = useState(0);
   // console.log(gender);
 
+  const genderList = [
+    { id: 1, name: "male", alias: "Male" },
+    { id: 2, name: "female", alias: "Female" },
+  ];
+  // const activity = [
+  //   { id: 1, name: "sedentary", alias: "Little or no exercise" },
+  //   { id: 2, name: "light", alias: "Exercise 1-3 times/week" },
+  //   { id: 3, name: "moderate", alias: "Exercise 4-5 times/week" },
+  //   {
+  //     id: 4,
+  //     name: "active",
+  //     alias: "Daily exercise or intense exercise 3-4 times/week",
+  //   },
+  //   { id: 5, name: "extreme", alias: "ntense exercise 6-7 times/week" },
+  // ];
   function handleSubmit(e) {
     e.preventDefault();
     setBmi(fitnessCalculatorFunctions.BMI(Number(height), Number(weight)));
@@ -95,12 +110,13 @@ function Calculator() {
                   />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput
-                    label="Gender"
-                    name="gender"
-                    onChange={(e) => setGender(e.target.value)}
-                    fullWidth
-                  />
+                  <Select name="gender" onChange={setGender}>
+                    {genderList.map((genders) => (
+                      <MenuItem key={genders.id} value={genders.name}>
+                        {genders.alias}
+                      </MenuItem>
+                    ))}
+                  </Select>
                 </Grid>
                 <Grid item xs={12} md={12}>
                   <MKInput
@@ -156,6 +172,8 @@ function Calculator() {
         {bmi > 0 && (
           <MKTypography variant="h3" mb={1}>
             BMI is {bmi}
+            <br />
+            BFP is {bfp}
           </MKTypography>
         )}
       </Grid>
