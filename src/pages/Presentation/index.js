@@ -5,7 +5,7 @@ import Card from "@mui/material/Card";
 
 // Material Kit 2 PRO React components
 import MKBox from "components/MKBox";
-import MKBadge from "components/MKBadge";
+// import MKBadge from "components/MKBadge";
 import MKTypography from "components/MKTypography";
 import MKSocialButton from "components/MKSocialButton";
 
@@ -22,7 +22,7 @@ import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 // import Pages from "pages/Presentation/sections/Pages";
 // import Testimonials from "pages/Presentation/sections/Testimonials";
 import Pricing from "pages/Company/Pricing/sections/Pricing";
-// import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 
 // Presentation page components
 import BuiltByDevelopers from "pages/Presentation/components/BuiltByDevelopers";
@@ -36,7 +36,7 @@ import bgImage from "assets/images/bg-presentation.jpg";
 // import Calculator from "./sections/calculator";
 
 function Presentation() {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -46,7 +46,7 @@ function Presentation() {
         action={{
           type: "internal",
           route: "/pricing",
-          label: "دوره ها",
+          label: <Trans i18nKey="courses">Courses</Trans>,
           color: "info",
         }}
         sticky
@@ -80,23 +80,15 @@ function Presentation() {
               mt={-6}
               mb={1}
               sx={({ breakpoints, typography: { size } }) => ({
-                [breakpoints.down("md")]: {
+                [breakpoints.down("lg")]: {
                   fontSize: size["3xl"],
                 },
               })}
             >
-              FITLINEZ{" "}
-              <MKBadge
-                badgeContent="pro"
-                size="lg"
-                variant="contained"
-                color="white"
-                container
-                sx={{ mt: -4 }}
-              />
+              {t("homeH1")}
             </MKTypography>
             <MKTypography variant="body1" color="white" textAlign="center" px={6} mt={1}>
-              Start the new LifeStyle, healthy and effective
+              {t("homeH2")}
             </MKTypography>
           </Grid>
         </Container>

@@ -15,6 +15,8 @@ import MKTypography from "components/MKTypography";
 // Material Kit 2 PRO React examples
 import DefaultPricingCard from "examples/Cards/PricingCards/DefaultPricingCard";
 
+import { t } from "i18next";
+
 // Imags
 const bgImage =
   "https://images.unsplash.com/photo-1467541473380-93479a5a3ffa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2246&amp;q=80";
@@ -60,10 +62,10 @@ function Pricing() {
               sx={{ mb: 1 }}
             />
             <MKTypography variant="h3" color="white" mb={2}>
-              See our pricing
+              {t("pricingtitle")}
             </MKTypography>
             <MKTypography variant="body2" color="white">
-              You have Free Unlimited Updates and Premium Support on each package.
+              {t("pricingheadline")}
             </MKTypography>
           </Grid>
         </Container>

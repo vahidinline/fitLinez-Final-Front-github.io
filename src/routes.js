@@ -92,6 +92,9 @@ import Privacy from "layouts/pages/support/privacy";
 // import Tables from "layouts/sections/elements/tables";
 // import Toggles from "layouts/sections/elements/toggles";
 // import Typography from "layouts/sections/elements/typography";
+// import { useTranslation } from "react-i18next";
+
+// const { t } = useTranslation();
 
 const routes = [
   {

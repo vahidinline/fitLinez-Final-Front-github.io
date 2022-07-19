@@ -26,7 +26,14 @@ import Icon from "@mui/material/Icon";
 // Material Kit 2 PRO React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
+import MKButton from "components/MKButton";
 
+import { useTranslation } from "react-i18next";
+
+const langs = {
+  en: { nativeName: "English" },
+  fa: { nativeName: "Persian" },
+};
 function DefaultNavbarDropdown({
   name,
   icon,
@@ -49,7 +56,7 @@ function DefaultNavbarDropdown({
     component: Link,
     to: route,
   };
-
+  const { i18n } = useTranslation();
   return (
     <>
       <MKBox
@@ -64,6 +71,20 @@ function DefaultNavbarDropdown({
         {...(route && routeComponent)}
         {...(href && linkComponent)}
       >
+        <MKBox>
+          {Object.keys(langs).map((lng) => (
+            <MKButton
+              variant="text"
+              color="info"
+              type="submit"
+              key={lng}
+              onClick={() => i18n.changeLanguage(lng)}
+              disabled={i18n.resolvedLanguage === lng}
+            >
+              {lng}
+            </MKButton>
+          ))}
+        </MKBox>
         <MKTypography
           variant="body2"
           lineHeight={1}
