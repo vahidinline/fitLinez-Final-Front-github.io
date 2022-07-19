@@ -54,6 +54,7 @@ function DefaultPricingCard({ color, badge, price, specifications, action, shado
         fontWeight="regular"
       >
         {label}
+        {}
       </MKTypography>
     </MKBox>
   ));
@@ -100,6 +101,19 @@ function DefaultPricingCard({ color, badge, price, specifications, action, shado
               {price.value}
               <MKTypography display="inline" component="small" variant="h5" color="inherit">
                 /{price.type}
+              </MKTypography>
+              <br />
+              <MKTypography display="inline" component="small" variant="h5" color="inherit">
+                {price.oldvaluetitle}
+              </MKTypography>
+              <MKTypography
+                display="inline"
+                component="small"
+                variant="h3"
+                color="inherit"
+                sx={{ textDecoration: "line-through" }}
+              >
+                {price.oldvalue}
               </MKTypography>
             </MKTypography>
           </MKBox>
@@ -176,6 +190,8 @@ DefaultPricingCard.propTypes = {
   price: PropTypes.shape({
     currency: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    oldvalue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    oldvaluetitle: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     type: PropTypes.string.isRequired,
   }).isRequired,
   specifications: PropTypes.arrayOf(PropTypes.shape).isRequired,

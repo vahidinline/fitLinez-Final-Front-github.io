@@ -1,18 +1,3 @@
-/*
-=========================================================
-* Material Kit 2 PRO React - v2.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-pro-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -37,6 +22,7 @@ import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 // import Pages from "pages/Presentation/sections/Pages";
 // import Testimonials from "pages/Presentation/sections/Testimonials";
 import Pricing from "pages/Company/Pricing/sections/Pricing";
+// import { useTranslation } from "react-i18next";
 
 // Presentation page components
 import BuiltByDevelopers from "pages/Presentation/components/BuiltByDevelopers";
@@ -50,14 +36,17 @@ import bgImage from "assets/images/bg-presentation.jpg";
 // import Calculator from "./sections/calculator";
 
 function Presentation() {
+  // const { t } = useTranslation();
+
   return (
     <>
       <DefaultNavbar
+        transparent
         routes={routes}
         action={{
           type: "internal",
-          route: "/pages/company/pricing",
-          label: "Register now",
+          route: "/pricing",
+          label: "دوره ها",
           color: "info",
         }}
         sticky

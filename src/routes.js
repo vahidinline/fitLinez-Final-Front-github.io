@@ -105,12 +105,12 @@ const routes = [
         collapse: [
           {
             name: "about us",
-            route: "/pages/company/about-us",
+            route: "/about-us",
             component: <AboutUs />,
           },
           {
             name: "pricing",
-            route: "/pages/company/pricing",
+            route: "/pricing",
             component: <Pricing />,
           },
         ],
@@ -125,7 +125,7 @@ const routes = [
           // },
           {
             name: "contact us",
-            route: "/pages/support/contact-us",
+            route: "/contact-us",
             component: <ContactUs />,
           },
           // {
@@ -135,7 +135,7 @@ const routes = [
           // },
           {
             name: "privacy",
-            route: "/pages/support/privacy",
+            route: "/privacy",
             component: <Privacy />,
           },
         ],

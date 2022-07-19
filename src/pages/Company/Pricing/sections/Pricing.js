@@ -101,7 +101,7 @@ function Pricing() {
                   badge={{ color: "light", label: tabType === "rial" ? "مشاوره" : "Consultant" }}
                   price={{
                     currency: tabType === "rial" ? "تومان" : "€",
-                    value: tabType === "rial" ? "۵۰۰،۰۰۰" : 17,
+                    value: tabType === "rial" ? "۷۲۵،۰۰۰" : 25,
                     type: tabType === "rial" ? "یک جلسه" : "One-Session",
                   }}
                   specifications={[
@@ -137,13 +137,14 @@ function Pricing() {
                   price={{
                     currency: tabType === "rial" ? "تومان" : "€",
                     value: tabType === "rial" ? "۲،۹۰۰،۰۰۰" : 97,
+
                     type: tabType === "rial" ? "در ماه" : "monthly",
                   }}
                   specifications={[
                     {
                       label:
                         tabType === "rial"
-                          ? "چهار جلسه،ی سی دقیقه‌ای تصویری با آذر"
+                          ? "چهار جلسه‌ی سی دقیقه‌ای تصویری با آذر"
                           : "30 minutes weekly One-by-One nutrition coaching video calls",
                       includes: true,
                     },
@@ -182,6 +183,8 @@ function Pricing() {
                   price={{
                     currency: tabType === "rial" ? "تومان" : "€",
                     value: tabType === "rial" ? "۶،۹۷۵،۰۰۰" : 235,
+                    oldvaluetitle: tabType === "rial" ? " ارزش دوره :" : "Value: ",
+                    oldvalue: tabType === "rial" ? " ۸،۷۰۰،۰۰۰" : 291,
                     type: tabType === "rial" ? "سه ماهه" : "3-Month",
                   }}
                   specifications={[

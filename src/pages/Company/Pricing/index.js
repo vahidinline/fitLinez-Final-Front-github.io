@@ -25,7 +25,7 @@ import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 
 // Pricing page sections
 // import Header from "pages/Company/Pricing/sections/Header";
-import AboutUs from "pages/Company/Pricing/sections/AboutUs";
+// import AboutUs from "pages/Company/Pricing/sections/AboutUs";
 import PricingSection from "pages/Company/Pricing/sections/Pricing";
 // import LifetimeMembership from "pages/Company/Pricing/sections/LifetimeMembership";
 // import Testimonials from "pages/Company/Pricing/sections/Testimonials";
@@ -39,10 +39,10 @@ import routes from "routes";
 function Pricing() {
   return (
     <>
-      <DefaultNavbar routes={routes} transparent light />
+      <DefaultNavbar routes={routes} transparent dark />
       {/* <Header /> */}
       <MKBox p={3}>
-        <AboutUs />
+        {/* <AboutUs /> */}
         <PricingSection />
         {/* <LifetimeMembership /> */}
         {/* <Testimonials /> */}
