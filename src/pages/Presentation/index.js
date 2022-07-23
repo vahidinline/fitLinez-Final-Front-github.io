@@ -47,7 +47,6 @@ function Presentation(props) {
   return (
     <>
       <DefaultNavbar
-        transparent
         routes={routes}
         action={{
           type: "internal",

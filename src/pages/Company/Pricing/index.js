@@ -39,7 +39,7 @@ import routes from "routes";
 function Pricing() {
   return (
     <>
-      <DefaultNavbar routes={routes} transparent dark />
+      <DefaultNavbar routes={routes} dark />
       {/* <Header /> */}
       <MKBox p={3}>
         {/* <AboutUs /> */}
