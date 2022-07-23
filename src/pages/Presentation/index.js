@@ -74,6 +74,7 @@ function Presentation(props) {
             item
             xs={12}
             lg={7}
+            flexDirection="column"
             justifyContent="center"
             mx="auto"
             sx={{
