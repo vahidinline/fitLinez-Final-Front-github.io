@@ -13,6 +13,16 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
+    "react/prop-types": "off",
+    "react/self-closing-comp": "off",
+    "react/button-has-type": "off",
+    "no-lonely-if": "off",
+    "dot-notation": "off",
+    "object-shorthand": "off",
+    "no-shadow": "off",
+    "no-console": "off",
+    "prefer-arrow-callback": "off",
+    "func-names": "off",
     "prettier/prettier": [
       "error",
       {

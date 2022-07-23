@@ -34,7 +34,7 @@ i18next
       },
     },
 
-    debug: true,
+    debug: false,
 
     whitelist: availableLanguages,
 

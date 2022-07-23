@@ -75,7 +75,7 @@ function DefaultNavbarDropdown({
           {Object.keys(langs).map((lng) => (
             <MKButton
               variant="text"
-              color="info"
+              color="white"
               type="submit"
               key={lng}
               onClick={() => i18n.changeLanguage(lng)}

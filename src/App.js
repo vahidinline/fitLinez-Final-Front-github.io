@@ -14,6 +14,14 @@ import Presentation from "layouts/pages/presentation";
 // Material Kit 2 PRO React routes
 import routes from "routes";
 
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import SignUpForm from "pages/User";
+
+const stripePromise = loadStripe(
+  "pk_test_51JSLBhAB6MVrXxqzX3ZVALadRmlc7jrW9yiykDmjKJfnPMjVQg0xtIiBqvOPcwz2r1t8VEiC7dCwQromfRjRak8W00raQ8oyLK"
+);
+
 export default function App() {
   const { pathname } = useLocation();
 
@@ -39,11 +47,14 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Routes>
-        {getRoutes(routes)}
-        <Route path="/" element={<Presentation />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+      <Elements stripe={stripePromise}>
+        <Routes>
+          {getRoutes(routes)}
+          <Route path="/" element={<Presentation />} />
+          <Route path="/success" element={<SignUpForm />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Elements>
     </ThemeProvider>
   );
 }

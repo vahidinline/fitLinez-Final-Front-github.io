@@ -16,6 +16,7 @@ import MKTypography from "components/MKTypography";
 import DefaultPricingCard from "examples/Cards/PricingCards/DefaultPricingCard";
 
 import { t } from "i18next";
+// import axios from "axios";
 
 // Imags
 const bgImage =
@@ -28,6 +29,50 @@ function Pricing() {
   const handleTabType = ({ currentTarget }, newValue) => {
     setActiveTab(newValue);
     setTabType(currentTarget.id);
+  };
+
+  const handlePaymentRial = ({ id }) => {
+    fetch("http://localhost:8080/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        items: [{ id }],
+      }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then(({ url }) => {
+        window.location = url;
+      })
+      .catch((e) => {
+        console.error(e.error);
+      });
+  };
+
+  const handlePayment = ({ id }) => {
+    fetch("https://ftbackfinal.herokuapp.com/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        items: [{ id }],
+      }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then(({ url }) => {
+        window.location = url;
+      })
+      .catch((e) => {
+        console.error(e.error);
+      });
   };
 
   return (
@@ -124,10 +169,7 @@ function Pricing() {
                   ]}
                   action={{
                     type: "external",
-                    route:
-                      tabType === "eur"
-                        ? "https://buy.stripe.com/dR6aFU0N62h0aMU8wB"
-                        : "https://zarinp.al/423697",
+                    onClick: () => handlePayment({ id: 1 }),
                     color: "info",
                     label: tabType === "rial" ? "خرید " : "Buy",
                   }}
@@ -169,11 +211,8 @@ function Pricing() {
                   ]}
                   action={{
                     type: "external",
-                    route:
-                      tabType === "eur"
-                        ? "https://buy.stripe.com/dR64hw1Ra9Js4owcMQ"
-                        : "https://zarinp.al/423704",
                     color: "info",
+                    onClick: () => handlePayment({ id: 2 }),
                     label: tabType === "rial" ? "خرید " : "Buy",
                   }}
                 />
@@ -216,10 +255,10 @@ function Pricing() {
                   ]}
                   action={{
                     type: "external",
-                    route:
-                      tabType === "eur"
-                        ? "https://buy.stripe.com/4gwaFU3ZicVE3ks6ou"
-                        : "https://zarinp.al/423709",
+                    onClick:
+                      tabType === "rial"
+                        ? () => handlePayment({ id: 3 })
+                        : () => handlePaymentRial({ id: 3 }),
                     color: "light",
                     label: tabType === "rial" ? "خرید " : "Buy",
                   }}

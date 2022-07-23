@@ -138,13 +138,14 @@ function DefaultPricingCard({ color, badge, price, specifications, action, shado
               <MKButton
                 component="a"
                 href={action.route}
+                onClick={action.onClick}
                 target="_blank"
                 rel="noreferrer"
                 variant="gradient"
                 color={action.color}
                 fullWidth
               >
-                {action.label}&nbsp;
+                {action.label}&nbsp; {action.disabled}
                 <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
               </MKButton>
             </MKBox>
@@ -197,6 +198,7 @@ DefaultPricingCard.propTypes = {
   specifications: PropTypes.arrayOf(PropTypes.shape).isRequired,
   action: PropTypes.shape({
     type: PropTypes.oneOf(["external", "internal"]).isRequired,
+    id: PropTypes.oneOf(["1", "2", "3"]).isRequired,
     route: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     color: PropTypes.oneOf([

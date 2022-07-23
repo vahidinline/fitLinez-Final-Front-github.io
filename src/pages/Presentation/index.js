@@ -1,3 +1,5 @@
+import React from "react";
+
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -8,6 +10,7 @@ import MKBox from "components/MKBox";
 // import MKBadge from "components/MKBadge";
 import MKTypography from "components/MKTypography";
 import MKSocialButton from "components/MKSocialButton";
+// import MKButton from "components/MKButton";
 
 // Material Kit 2 PRO React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
@@ -35,7 +38,10 @@ import routes from "routes";
 import bgImage from "assets/images/bg-presentation.jpg";
 // import Calculator from "./sections/calculator";
 
-function Presentation() {
+function Presentation(props) {
+  const { email } = props;
+  console.log(email);
+
   const { t } = useTranslation();
 
   return (
@@ -77,6 +83,7 @@ function Presentation() {
             <MKTypography
               variant="h1"
               color="white"
+              align="center"
               mt={-6}
               mb={1}
               sx={({ breakpoints, typography: { size } }) => ({
@@ -105,7 +112,6 @@ function Presentation() {
         }}
       >
         {/* <Counters /> */}
-
         {/* <Information /> */}
         {/* <DesignBlocks /> */}
         {/* <AuthPages />

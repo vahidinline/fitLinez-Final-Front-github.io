@@ -47,6 +47,7 @@ import Pricing from "layouts/pages/company/pricing";
 import ContactUs from "layouts/pages/support/contact-us";
 // import Faq from "layouts/pages/support/faq";
 import Privacy from "layouts/pages/support/privacy";
+import PaymentGateWay from "./pages/Company/payment";
 
 // Account
 // import SignInBasicPage from "layouts/authentication/sign-in/basic";
@@ -131,11 +132,11 @@ const routes = [
             route: "/contact-us",
             component: <ContactUs />,
           },
-          // {
-          //   name: "faq",
-          //   route: "/pages/support/faq",
-          //   component: <Faq />,
-          // },
+          {
+            name: "Payment",
+            route: "/payment",
+            component: <PaymentGateWay />,
+          },
           {
             name: "privacy",
             route: "/privacy",
