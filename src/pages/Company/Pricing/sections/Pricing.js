@@ -32,25 +32,9 @@ function Pricing() {
   };
 
   const handlePaymentRial = ({ id }) => {
-    fetch("http://localhost:8080/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        items: [{ id }],
-      }),
-    })
-      .then((res) => {
-        if (res.ok) return res.json();
-        return res.json().then((json) => Promise.reject(json));
-      })
-      .then(({ url }) => {
-        window.location = url;
-      })
-      .catch((e) => {
-        console.error(e.error);
-      });
+    if (id === 1) window.location = "https://zarinp.al/423697";
+    else if (id === 2) window.location = "https://zarinp.al/423704";
+    else if (id === 3) window.location = "https://zarinp.al/423709";
   };
 
   const handlePayment = ({ id }) => {
@@ -169,7 +153,10 @@ function Pricing() {
                   ]}
                   action={{
                     type: "external",
-                    onClick: () => handlePayment({ id: 1 }),
+                    onClick:
+                      tabType === "rial"
+                        ? () => handlePaymentRial({ id: 1 })
+                        : () => handlePayment({ id: 1 }),
                     color: "info",
                     label: tabType === "rial" ? "خرید " : "Buy",
                   }}
@@ -212,7 +199,10 @@ function Pricing() {
                   action={{
                     type: "external",
                     color: "info",
-                    onClick: () => handlePayment({ id: 2 }),
+                    onClick:
+                      tabType === "rial"
+                        ? () => handlePaymentRial({ id: 2 })
+                        : () => handlePayment({ id: 2 }),
                     label: tabType === "rial" ? "خرید " : "Buy",
                   }}
                 />
@@ -257,8 +247,8 @@ function Pricing() {
                     type: "external",
                     onClick:
                       tabType === "rial"
-                        ? () => handlePayment({ id: 3 })
-                        : () => handlePaymentRial({ id: 3 }),
+                        ? () => handlePaymentRial({ id: 3 })
+                        : () => handlePayment({ id: 3 }),
                     color: "light",
                     label: tabType === "rial" ? "خرید " : "Buy",
                   }}
