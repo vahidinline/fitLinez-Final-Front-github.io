@@ -19,6 +19,8 @@ i18next
           homeH2: "Start the new LifeStyle, healthy and effective",
           pricingtitle: "See our pricing",
           pricingheadline: "you can pay trough Stripe payment solution",
+          homebutton1: "Get started",
+          homebutton2: "Calculator",
         },
       },
       fa: {
@@ -26,10 +28,12 @@ i18next
           about: "درباره ما",
           courses: "دوره‌ها",
           homeH1: "فیت‌لاینز",
-          homeH2: "شروع یک لایف استایل جدید، سالم و موقر",
+          homeH2: "شروع یک لایف استایل جدید، سالم و موثر",
           pricingtitle: "مشاهده پکیج های کوچینگ",
           pricingheadline:
             "پرداخت از طریق شبکه بانکی شتاب و همچنین پرداخت بین المللی امکان پذیر است",
+          homebutton1: "شروع دوره",
+          homebutton2: "محاسبه کالری",
         },
       },
     },

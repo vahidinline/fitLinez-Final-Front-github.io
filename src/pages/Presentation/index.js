@@ -36,7 +36,8 @@ import routes from "routes";
 
 // Images
 import bgImage from "assets/images/bg-presentation.jpg";
-// import Calculator from "./sections/calculator";
+import MKButton from "components/MKButton";
+import { Stack } from "@mui/material";
 
 function Presentation(props) {
   const { email } = props;
@@ -72,31 +73,38 @@ function Presentation(props) {
             container
             item
             xs={12}
-            lg={7}
-            flexDirection="column"
-            justifyContent="center"
-            mx="auto"
-            sx={{
-              overflow: "visible",
-            }}
+            md={7}
+            justifyContent={{ xs: "center", md: "start" }}
+            sx={{ textAlign: { xs: "center", md: "left" } }}
           >
             <MKTypography
               variant="h1"
               color="white"
-              align="center"
-              mt={-6}
-              mb={1}
               sx={({ breakpoints, typography: { size } }) => ({
-                [breakpoints.down("lg")]: {
+                [breakpoints.down("md")]: {
                   fontSize: size["3xl"],
                 },
               })}
             >
               {t("homeH1")}
             </MKTypography>
-            <MKTypography variant="body1" color="white" textAlign="center" px={6} mt={1}>
-              {t("homeH2")}
+            <MKTypography
+              variant="body1"
+              color="white"
+              mt={1}
+              pr={{ md: 12, lg: 24, xl: 32 }}
+              opacity={0.8}
+            >
+              {t("homeH2")}{" "}
             </MKTypography>
+            <Stack direction="row" spacing={1} mt={6} mb={3}>
+              <MKButton variant="gradient" color="info" href="/pricing">
+                {t("homebutton1")}
+              </MKButton>
+              <MKButton variant="text" color="white" href="/calculator">
+                {t("homebutton2")}
+              </MKButton>
+            </Stack>
           </Grid>
         </Container>
       </MKBox>
@@ -119,7 +127,7 @@ function Presentation(props) {
         <Container sx={{ mt: 6 }}>
           <BuiltByDevelopers />
         </Container>
-        {/* <Calculator /> */}
+
         <Container>
           <Grid container spacing={3}>
             <Grid item xs={12} lg={4}>

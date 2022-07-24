@@ -12,15 +12,24 @@ import MKTypography from "components/MKTypography";
 import fitnessCalculatorFunctions from "fitness-calculator";
 
 function Calculator() {
-  const [gender, setGender] = useState("male");
-  const [weight, setWeight] = useState(82);
-  const [height, setHeight] = useState(182);
-  const [age, setAge] = useState(39);
-  const [waist, setWaist] = useState(87);
-  const [hip, setHip] = useState(90);
-  const [neck, setNeck] = useState(37);
-  const [calorie, setCalorie] = useState(0);
-  const [activity, setActivity] = useState("active");
+  const [userData, setUserData] = useState({
+    age: 39,
+    height: 189,
+    gender: "male",
+    weight: "82",
+    activity: "active",
+    neck: 34,
+    waist: 78,
+    hip: 90,
+  });
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
+  const [calorie, setCalorie] = useState();
   const [bmi, setBmi] = useState(0);
   const [bfp, setBfp] = useState(0);
   // console.log(gender);
@@ -42,29 +51,28 @@ function Calculator() {
   // ];
   function handleSubmit(e) {
     e.preventDefault();
-    setBmi(fitnessCalculatorFunctions.BMI(Number(height), Number(weight)));
+    setBmi(fitnessCalculatorFunctions.BMI(Number(userData.height), Number(userData.weight)));
     setCalorie(
       fitnessCalculatorFunctions.calorieNeeds(
-        gender,
-        Number(age),
-        Number(height),
-        Number(weight),
-        activity
+        userData.gender,
+        Number(userData.age),
+        Number(userData.height),
+        Number(userData.weight),
+        userData.activity
       )
     );
 
     setBfp(
       fitnessCalculatorFunctions.BFP(
-        gender,
-        Number(height),
-        Number(weight),
-        Number(neck),
-        Number(waist),
-        Number(hip)
+        userData.gender,
+        Number(userData.height),
+        Number(userData.weight),
+        Number(userData.neck),
+        Number(userData.waist),
+        Number(userData.hip)
       )
     );
   }
-  console.log(calorie, bfp);
   return (
     <MKBox component="section" py={12} alignItems="center" justifyContent="center">
       <Grid container item justifyContent="center" xs={10} lg={7} mx="auto" textAlign="center">
@@ -76,7 +84,7 @@ function Calculator() {
         container
         item
         xs={12}
-        md={6}
+        md={12}
         sx={{ mx: "auto" }}
         alignItems="center"
         justifyContent="center"
@@ -86,31 +94,21 @@ function Calculator() {
             <MKBox p={3}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={12}>
-                  <MKInput
-                    label="Age"
-                    name="age"
-                    onChange={(e) => setAge(e.target.value)}
-                    fullWidth
-                  />
+                  <MKInput label="Age" name="age" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput
-                    label="Height"
-                    name="height"
-                    onChange={(e) => setHeight(e.target.value)}
-                    fullWidth
-                  />
+                  <MKInput label="Height" name="height" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput
-                    label="Weight"
-                    name="weight"
-                    onChange={(e) => setWeight(e.target.value)}
-                    fullWidth
-                  />
+                  <MKInput label="Weight" name="weight" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <Select name="gender" onChange={setGender}>
+                  <Select
+                    name="gender"
+                    onChange={handleInput}
+                    variant="standard"
+                    value={userData.gender}
+                  >
                     {genderList.map((genders) => (
                       <MenuItem key={genders.id} value={genders.name}>
                         {genders.alias}
@@ -119,36 +117,16 @@ function Calculator() {
                   </Select>
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput
-                    label="Activity"
-                    name="activity"
-                    onChange={(e) => setActivity(e.target.value)}
-                    fullWidth
-                  />
+                  <MKInput label="Activity" name="activity" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput
-                    label="Waist"
-                    name="waist"
-                    onChange={(e) => setWaist(e.target.value)}
-                    fullWidth
-                  />
+                  <MKInput label="Waist" name="waist" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput
-                    label="Neck"
-                    name="neck"
-                    onChange={(e) => setNeck(e.target.value)}
-                    fullWidth
-                  />
+                  <MKInput label="Neck" name="neck" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput
-                    label="Hip"
-                    name="hip"
-                    onChange={(e) => setHip(e.target.value)}
-                    fullWidth
-                  />
+                  <MKInput label="Hip" name="hip" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
                   <MKButton variant="gradient" color="info" type="submit" fullWidth>
@@ -164,7 +142,7 @@ function Calculator() {
         container
         item
         xs={12}
-        md={6}
+        md={12}
         sx={{ mx: "auto" }}
         alignItems="center"
         justifyContent="center"
@@ -174,6 +152,8 @@ function Calculator() {
             BMI is {bmi}
             <br />
             BFP is {bfp}
+            <br />
+            Balance Calories is {calorie.balance}
           </MKTypography>
         )}
       </Grid>

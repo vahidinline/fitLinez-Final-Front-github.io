@@ -29,6 +29,7 @@ import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 
 import { useTranslation } from "react-i18next";
+import { Typography } from "@mui/material";
 
 const langs = {
   en: { nativeName: "English" },
@@ -71,20 +72,6 @@ function DefaultNavbarDropdown({
         {...(route && routeComponent)}
         {...(href && linkComponent)}
       >
-        <MKBox>
-          {Object.keys(langs).map((lng) => (
-            <MKButton
-              variant="text"
-              color="white"
-              type="submit"
-              key={lng}
-              onClick={() => i18n.changeLanguage(lng)}
-              disabled={i18n.resolvedLanguage === lng}
-            >
-              {lng}
-            </MKButton>
-          ))}
-        </MKBox>
         <MKTypography
           variant="body2"
           lineHeight={1}
@@ -113,6 +100,20 @@ function DefaultNavbarDropdown({
           {children}
         </Collapse>
       )}
+      <MKBox>
+        {Object.keys(langs).map((lng) => (
+          <MKButton
+            variant="text"
+            color="white"
+            type="submit"
+            key={lng}
+            onClick={() => i18n.changeLanguage(lng)}
+            disabled={i18n.resolvedLanguage === lng}
+          >
+            <Typography>{lng}</Typography>
+          </MKButton>
+        ))}
+      </MKBox>
     </>
   );
 }

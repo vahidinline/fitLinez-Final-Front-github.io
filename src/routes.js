@@ -47,6 +47,7 @@ import Pricing from "layouts/pages/company/pricing";
 import ContactUs from "layouts/pages/support/contact-us";
 // import Faq from "layouts/pages/support/faq";
 import Privacy from "layouts/pages/support/privacy";
+import VirtualReality from "pages/Extra/VirtualReality";
 import PaymentGateWay from "./pages/Company/payment";
 
 // Account
@@ -116,6 +117,11 @@ const routes = [
             name: "pricing",
             route: "/pricing",
             component: <Pricing />,
+          },
+          {
+            name: "Calculator",
+            route: "/calculator",
+            component: <VirtualReality />,
           },
         ],
       },

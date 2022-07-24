@@ -13,8 +13,10 @@ import Select from "@mui/material/Select";
 import { FormControl, InputLabel } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function SignUpForm() {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -42,10 +44,14 @@ function SignUpForm() {
         setUserData(res);
         alert("اطلاعات شما ثبت شد.");
       })
+      .finally(setTimeout(navigate("/"), 5000))
       .catch((e) => {
         alert(e.message);
       });
   };
+  // useEffect(() => {
+  //   console.log(axios.get("http://localhost:8080/order/success"));
+  // }, []);
   return (
     <MKBox component="section" py={12}>
       <Container>
@@ -156,7 +162,7 @@ function SignUpForm() {
                 </Grid>
                 <Grid container spacing={3} mt={1}>
                   <Grid item xs={12} md={6}>
-                    <FormControl fullWidth>
+                    <FormControl fullWidth variant="standard">
                       <InputLabel id="demo-simple-select-label">Activity</InputLabel>
 
                       <Select
@@ -175,7 +181,7 @@ function SignUpForm() {
                     </FormControl>
                   </Grid>
                   <Grid item xs={12} md={6}>
-                    <FormControl fullWidth>
+                    <FormControl fullWidth variant="standard">
                       <InputLabel id="demo-simple-select-label">Gender</InputLabel>
 
                       <Select

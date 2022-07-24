@@ -15,7 +15,7 @@ import MKTypography from "components/MKTypography";
 // Material Kit 2 PRO React examples
 import DefaultPricingCard from "examples/Cards/PricingCards/DefaultPricingCard";
 
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 // import axios from "axios";
 
 // Imags
@@ -23,6 +23,8 @@ const bgImage =
   "https://images.unsplash.com/photo-1467541473380-93479a5a3ffa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2246&amp;q=80";
 
 function Pricing() {
+  const { t } = useTranslation();
+
   const [activeTab, setActiveTab] = useState(0);
   const [tabType, setTabType] = useState("monthly");
 
@@ -31,6 +33,28 @@ function Pricing() {
     setTabType(currentTarget.id);
   };
 
+  // const handleSubscription = () => {
+  //   fetch("http://localhost:8080/Sub-checkout-session", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       items: [{ name: "priceId", value: "price_1LOgmSAB6MVrXxqz6s6ATonA" }],
+  //     }),
+  //   })
+  //     .then((res) => {
+  //       if (res.ok) return res.json();
+  //       return res.json().then((json) => Promise.reject(json));
+  //     })
+  //     .then(({ url }) => {
+  //       window.location = url;
+  //     })
+  //     .catch((e) => {
+  //       console.error(e.error);
+  //     });
+  // };
+
   const handlePaymentRial = ({ id }) => {
     if (id === 1) window.location = "https://zarinp.al/423697";
     else if (id === 2) window.location = "https://zarinp.al/423704";
@@ -38,7 +62,7 @@ function Pricing() {
   };
 
   const handlePayment = ({ id }) => {
-    fetch("https://ftbackfinal.herokuapp.com/create-checkout-session", {
+    fetch(`${process.env.REACT_APP_SERVER_PAYMENT}/create-checkout-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
