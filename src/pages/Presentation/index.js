@@ -106,7 +106,7 @@ function Presentation(props) {
                 color="white"
                 href="https://fitlinez-front.vercel.app/calories"
               >
-                <MKTypography variant="h3"> {t("homebutton2")}</MKTypography>
+                <MKTypography variant="h3">محاسبه کالری </MKTypography>
               </MKButton>
             </Stack>
           </Grid>
