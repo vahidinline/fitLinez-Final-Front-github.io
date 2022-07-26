@@ -32,7 +32,7 @@ function Calculator() {
   const [calorie, setCalorie] = useState();
   const [bmi, setBmi] = useState(0);
   const [bfp, setBfp] = useState(0);
-  // console.log(gender);
+  console.log(calorie);
 
   const genderList = [
     { id: 1, name: "male", alias: "Male" },
@@ -153,7 +153,7 @@ function Calculator() {
             <br />
             BFP is {bfp}
             <br />
-            Balance Calories is {calorie.balance}
+            Balance Calories is
           </MKTypography>
         )}
       </Grid>

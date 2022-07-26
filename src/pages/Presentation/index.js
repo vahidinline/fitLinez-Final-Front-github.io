@@ -101,8 +101,12 @@ function Presentation(props) {
               <MKButton variant="gradient" color="info" href="/pricing">
                 {t("homebutton1")}
               </MKButton>
-              <MKButton variant="text" color="white" href="/calculator">
-                {t("homebutton2")}
+              <MKButton
+                variant="gradient"
+                color="white"
+                href="https://fitlinez-front.vercel.app/calories"
+              >
+                <MKTypography variant="h3"> {t("homebutton2")}</MKTypography>
               </MKButton>
             </Stack>
           </Grid>
