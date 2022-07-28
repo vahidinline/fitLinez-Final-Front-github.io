@@ -21,12 +21,13 @@ function SignUpForm() {
     name: "",
     email: "",
     age: "",
+    gender: "",
+    weight: "",
     height: "",
     target: "",
     refer: "",
-    gender: "",
-    weight: "",
     activity: "",
+    location: "",
   });
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -38,20 +39,15 @@ function SignUpForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://fitlinez-backend.herokuapp.com/updateProfile", userData)
+      .post(`${process.env.REACT_APP_SERVER_PAYMENT}/updateProfile`, userData)
       .then((res) => {
         console.log(res.data);
         setUserData(res);
-        alert("اطلاعات شما ثبت شد.");
       })
-      .finally(setTimeout(navigate("/"), 5000))
-      .catch((e) => {
-        alert(e.message);
-      });
+      .then(navigate("/thankyou"))
+      .catch((e) => console.log(e));
   };
-  // useEffect(() => {
-  //   console.log(axios.get("http://localhost:8080/order/success"));
-  // }, []);
+
   return (
     <MKBox component="section" py={12}>
       <Container>
@@ -88,7 +84,7 @@ function SignUpForm() {
                       fullWidth
                       value={userData.name}
                       onChange={handleInput}
-                      requierd
+                      required
                     />
                   </Grid>
                   <Grid item xs={12} md={6}>
@@ -99,7 +95,7 @@ function SignUpForm() {
                       value={userData.email}
                       onChange={handleInput}
                       fullWidth
-                      requierd
+                      required
                     />
                   </Grid>
                 </Grid>
@@ -112,7 +108,7 @@ function SignUpForm() {
                       fullWidth
                       value={userData.age}
                       onChange={handleInput}
-                      requierd
+                      required
                     />
                   </Grid>
                   <Grid item xs={12} md={4}>
@@ -123,7 +119,7 @@ function SignUpForm() {
                       value={userData.weight}
                       onChange={handleInput}
                       fullWidth
-                      requierd
+                      required
                     />
                   </Grid>
                   <Grid item xs={12} md={4}>
@@ -134,12 +130,12 @@ function SignUpForm() {
                       value={userData.height}
                       onChange={handleInput}
                       fullWidth
-                      requierd
+                      required
                     />
                   </Grid>
                 </Grid>
                 <Grid container spacing={3} mt={1}>
-                  <Grid item xs={12} md={6}>
+                  <Grid item xs={12} md={4}>
                     <MKInput
                       name="target"
                       type="text"
@@ -149,7 +145,7 @@ function SignUpForm() {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item xs={12} md={6}>
+                  <Grid item xs={12} md={4}>
                     <MKInput
                       name="refer"
                       type="text"
@@ -159,19 +155,24 @@ function SignUpForm() {
                       fullWidth
                     />
                   </Grid>
+                  <Grid item xs={12} md={4}>
+                    <MKInput
+                      name="location"
+                      type="text"
+                      label="Location"
+                      value={userData.location}
+                      onChange={handleInput}
+                      fullWidth
+                      required
+                    />
+                  </Grid>
                 </Grid>
                 <Grid container spacing={3} mt={1}>
                   <Grid item xs={12} md={6}>
                     <FormControl fullWidth variant="standard">
-                      <InputLabel id="demo-simple-select-label">Activity</InputLabel>
+                      <InputLabel>Activity</InputLabel>
 
-                      <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={userData.activity}
-                        name="activity"
-                        onChange={handleInput}
-                      >
+                      <Select value={userData.activity} name="activity" onChange={handleInput}>
                         <MenuItem value="sedentary">sedentary</MenuItem>
                         <MenuItem value="light">light</MenuItem>
                         <MenuItem value="moderate">moderate</MenuItem>
@@ -182,15 +183,8 @@ function SignUpForm() {
                   </Grid>
                   <Grid item xs={12} md={6}>
                     <FormControl fullWidth variant="standard">
-                      <InputLabel id="demo-simple-select-label">Gender</InputLabel>
-
-                      <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={userData.gender}
-                        name="gender"
-                        onChange={handleInput}
-                      >
+                      <InputLabel>Gender</InputLabel>
+                      <Select value={userData.gender} name="gender" onChange={handleInput}>
                         <MenuItem value="female">Female</MenuItem>
                         <MenuItem value="male">Male</MenuItem>
                       </Select>

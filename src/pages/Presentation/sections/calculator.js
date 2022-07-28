@@ -16,10 +16,10 @@ function Calculator() {
     age: 39,
     height: 189,
     gender: "male",
-    weight: "82",
+    weight: "84",
     activity: "active",
     neck: 34,
-    waist: 78,
+    waist: 84,
     hip: 90,
   });
   const handleInput = (e) => {
@@ -32,11 +32,12 @@ function Calculator() {
   const [calorie, setCalorie] = useState();
   const [bmi, setBmi] = useState(0);
   const [bfp, setBfp] = useState(0);
+  const [tdee, setTDEE] = useState(0);
   console.log(calorie);
 
   const genderList = [
-    { id: 1, name: "male", alias: "Male" },
-    { id: 2, name: "female", alias: "Female" },
+    { id: 1, name: "male", alias: "آقا" },
+    { id: 2, name: "female", alias: "خانم" },
   ];
   // const activity = [
   //   { id: 1, name: "sedentary", alias: "Little or no exercise" },
@@ -49,6 +50,7 @@ function Calculator() {
   //   },
   //   { id: 5, name: "extreme", alias: "ntense exercise 6-7 times/week" },
   // ];
+  console.log(tdee);
   function handleSubmit(e) {
     e.preventDefault();
     setBmi(fitnessCalculatorFunctions.BMI(Number(userData.height), Number(userData.weight)));
@@ -70,6 +72,16 @@ function Calculator() {
         Number(userData.neck),
         Number(userData.waist),
         Number(userData.hip)
+      )
+    );
+
+    setTDEE(
+      fitnessCalculatorFunctions.TDEE(
+        userData.gender,
+        Number(userData.age),
+        Number(userData.height),
+        Number(userData.weight),
+        userData.activity
       )
     );
   }
@@ -94,17 +106,17 @@ function Calculator() {
             <MKBox p={3}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={12}>
-                  <MKInput label="Age" name="age" onChange={handleInput} fullWidth />
+                  <MKInput label="سن" name="age" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput label="Height" name="height" onChange={handleInput} fullWidth />
+                  <MKInput label="قد" name="height" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput label="Weight" name="weight" onChange={handleInput} fullWidth />
+                  <MKInput label="وزن" name="weight" onChange={handleInput} fullWidth />
                 </Grid>
-                <Grid item xs={12} md={12}>
+                <Grid item xs={4} md={6}>
                   <Select
-                    name="gender"
+                    name="جنسیت"
                     onChange={handleInput}
                     variant="standard"
                     value={userData.gender}
@@ -116,17 +128,32 @@ function Calculator() {
                     ))}
                   </Select>
                 </Grid>
+                <Grid item xs={8} md={6}>
+                  <Select
+                    className="form-control"
+                    name="میزان فعالیت"
+                    onChange={handleInput}
+                    value={userData.activity}
+                    variant="standard"
+                  >
+                    <MenuItem value="sedentary">یک تا سه روز در هفته</MenuItem>
+                    <MenuItem value="light">چهار تا پنج روز در هفته</MenuItem>
+                    <MenuItem value="moderate">
+                      ورزش روزانه / ورزش شدید سه تا چهار روز در هفته
+                    </MenuItem>
+                    <MenuItem value="active">ورزش شدید تقریبا هر روز</MenuItem>
+                    <MenuItem value="extreme">ورزش شدید روزانه/ کار فیزیکی</MenuItem>
+                  </Select>
+                </Grid>
+
                 <Grid item xs={12} md={12}>
-                  <MKInput label="Activity" name="activity" onChange={handleInput} fullWidth />
+                  <MKInput label="دور کمر" name="waist" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput label="Waist" name="waist" onChange={handleInput} fullWidth />
+                  <MKInput label="دور گردن" name="neck" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput label="Neck" name="neck" onChange={handleInput} fullWidth />
-                </Grid>
-                <Grid item xs={12} md={12}>
-                  <MKInput label="Hip" name="hip" onChange={handleInput} fullWidth />
+                  <MKInput label="دور باسن" name="hip" onChange={handleInput} fullWidth />
                 </Grid>
                 <Grid item xs={12} md={12}>
                   <MKButton variant="gradient" color="info" type="submit" fullWidth>
@@ -153,7 +180,7 @@ function Calculator() {
             <br />
             BFP is {bfp}
             <br />
-            Balance Calories is
+            Balance Calories is {tdee}
           </MKTypography>
         )}
       </Grid>
