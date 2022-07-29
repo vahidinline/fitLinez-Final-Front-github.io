@@ -62,15 +62,19 @@ function Pricing() {
   };
 
   const handlePayment = ({ id }) => {
-    fetch(`${process.env.REACT_APP_SERVER_PAYMENT}/create-checkout-session`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        items: [{ id }],
-      }),
-    })
+    fetch(
+      `https://backendfitlinez.herokuapp.com
+    /create-checkout-session`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          items: [{ id }],
+        }),
+      }
+    )
       .then((res) => {
         if (res.ok) return res.json();
         return res.json().then((json) => Promise.reject(json));
