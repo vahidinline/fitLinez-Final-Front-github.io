@@ -62,7 +62,7 @@ function Pricing() {
   };
 
   const handlePayment = ({ id }) => {
-    fetch(`http://localhost:8080/create-checkout-session`, {
+    fetch(`${process.env.REACT_APP_SERVER_PAYMENT}/create-checkout-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
