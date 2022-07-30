@@ -62,7 +62,7 @@ function Pricing() {
   };
 
   const handlePayment = ({ id }) => {
-    fetch(`https://backendfitlinez.herokuapp.com/create-checkout-session`, {
+    fetch(`http://localhost:8080/create-checkout-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
