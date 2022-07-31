@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import validator from "validator";
 
 // @mui material components
 import { Grid, Select, MenuItem } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -10,8 +12,11 @@ import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import fitnessCalculatorFunctions from "fitness-calculator";
 import axios from "axios";
+import MKAlert from "components/MKAlert";
 
 function Calculator() {
+  const { t } = useTranslation();
+
   const [show, setShow] = useState(false);
   const [showForm1, setShowform1] = useState(true);
   const [showResult, setShowResult] = useState(false);
@@ -35,11 +40,10 @@ function Calculator() {
       [name]: value,
     });
   };
-  const [calorie, setCalorie] = useState();
+  // const [calorie, setCalorie] = useState();
   const [bmi, setBmi] = useState(0);
   const [bfp, setBfp] = useState(0);
-  const [tdee, setTDEE] = useState(0);
-  console.log(calorie);
+  const [bmr, setBmr] = useState(0);
 
   const genderList = [
     { id: 1, name: "male", alias: "آقا" },
@@ -56,19 +60,18 @@ function Calculator() {
     },
     { id: 5, name: "extreme", alias: "ntense exercise 6-7 times/week" },
   ];
-  console.log(bmi);
   function handleSubmit(e) {
     e.preventDefault();
     setBmi(fitnessCalculatorFunctions.BMI(Number(userData.height), Number(userData.weight)));
-    setCalorie(
-      fitnessCalculatorFunctions.calorieNeeds(
-        userData.gender,
-        Number(userData.age),
-        Number(userData.height),
-        Number(userData.weight),
-        userData.activity
-      )
-    );
+    // setCalorie(
+    //   fitnessCalculatorFunctions.calorieNeeds(
+    //     userData.gender,
+    //     Number(userData.age),
+    //     Number(userData.height),
+    //     Number(userData.weight),
+    //     userData.activity
+    //   )
+    // );
 
     setBfp(
       fitnessCalculatorFunctions.BFP(
@@ -81,13 +84,12 @@ function Calculator() {
       )
     );
 
-    setTDEE(
-      fitnessCalculatorFunctions.TDEE(
+    setBmr(
+      fitnessCalculatorFunctions.BMR(
         userData.gender,
         Number(userData.age),
         Number(userData.height),
-        Number(userData.weight),
-        userData.activity
+        Number(userData.weight)
       )
     );
     setShowform1(false);
@@ -100,14 +102,13 @@ function Calculator() {
     });
     const [showButton, setShowButton] = useState(true);
     const checkinput = () => {
-      if (userInfo.name !== "" && userInfo.email !== "") {
+      if (userInfo.name !== "" && validator.isEmail(userInfo.email)) {
         setShowButton(false);
       }
     };
     useEffect(() => {
       checkinput();
     }, [userInfo]);
-    console.log(showButton);
     const handleInput = (e) => {
       const { name, value } = e.target;
       setUserInfo({
@@ -122,15 +123,36 @@ function Calculator() {
     };
 
     return (
-      <MKBox width="50%" center>
-        <MKTypography>Please enter your name and email address</MKTypography>
+      <MKBox width="100%">
+        <Grid spacing={3} m={4} item justifyContent="center" textAlign="center">
+          <MKTypography sx={{ align: "center" }}>{t("calctitle2")}</MKTypography>
+        </Grid>
+
         <MKBox p={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={12}>
-              <MKInput label="name" name="name" onChange={handleInput} fullWidth required />
+              <MKInput
+                label={t("calcLabelName")}
+                name="name"
+                onChange={handleInput}
+                fullWidth
+                required
+              />
             </Grid>
             <Grid item xs={12} md={12}>
-              <MKInput label="email" name="email" onChange={handleInput} fullWidth required />
+              <MKInput
+                label={t("calcLabelEmail")}
+                name="email"
+                onChange={handleInput}
+                fullWidth
+                required
+              />
+              <span
+                style={{
+                  fontWeight: "bold",
+                  color: "red",
+                }}
+              ></span>
             </Grid>
 
             <Grid item xs={12} md={12}>
@@ -141,7 +163,7 @@ function Calculator() {
                 fullWidth
                 disabled={showButton}
               >
-                Result
+                {t("calcButton2")}
               </MKButton>
             </Grid>
           </Grid>
@@ -153,7 +175,7 @@ function Calculator() {
     <MKBox component="section" py={12} alignItems="center" justifyContent="center">
       <Grid container item justifyContent="center" xs={10} lg={7} mx="auto" textAlign="center">
         <MKTypography variant="h3" mb={1}>
-          Calculator
+          {t("calctitle")}
         </MKTypography>
       </Grid>
       <Grid
@@ -167,17 +189,32 @@ function Calculator() {
       >
         <form onSubmit={handleSubmit}>
           {showForm1 ? (
-            <MKBox width="50%" center>
+            <MKBox width="100%" center>
               <MKBox p={3}>
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={12}>
-                    <MKInput label="سن" name="age" onChange={handleInput} fullWidth />
+                    <MKInput
+                      label={t("calcLabelAge")}
+                      name="age"
+                      onChange={handleInput}
+                      fullWidth
+                    />
                   </Grid>
                   <Grid item xs={12} md={12}>
-                    <MKInput label="قد" name="height" onChange={handleInput} fullWidth />
+                    <MKInput
+                      label={t("calcLabelHeight")}
+                      name="height"
+                      onChange={handleInput}
+                      fullWidth
+                    />
                   </Grid>
                   <Grid item xs={12} md={12}>
-                    <MKInput label="وزن" name="weight" onChange={handleInput} fullWidth />
+                    <MKInput
+                      label={t("calcLabelWeight")}
+                      name="weight"
+                      onChange={handleInput}
+                      fullWidth
+                    />
                   </Grid>
                   <Grid item xs={4} md={6}>
                     <Select name="جنسیت" onChange={handleInput} variant="standard">
@@ -199,13 +236,28 @@ function Calculator() {
                   </Grid>
 
                   <Grid item xs={12} md={12}>
-                    <MKInput label="دور کمر" name="waist" onChange={handleInput} fullWidth />
+                    <MKInput
+                      label={t("calcLabelWaist")}
+                      name="waist"
+                      onChange={handleInput}
+                      fullWidth
+                    />
                   </Grid>
                   <Grid item xs={12} md={12}>
-                    <MKInput label="دور گردن" name="neck" onChange={handleInput} fullWidth />
+                    <MKInput
+                      label={t("calcLabelNeck")}
+                      name="neck"
+                      onChange={handleInput}
+                      fullWidth
+                    />
                   </Grid>
                   <Grid item xs={12} md={12}>
-                    <MKInput label="دور باسن" name="hip" onChange={handleInput} fullWidth />
+                    <MKInput
+                      label={t("calcLabelNeck")}
+                      name="hip"
+                      onChange={handleInput}
+                      fullWidth
+                    />
                   </Grid>
                   <Grid item xs={12} md={12}>
                     <MKButton
@@ -215,7 +267,7 @@ function Calculator() {
                       onClick={handleCTA}
                       fullWidth
                     >
-                      next Step
+                      {t("calcButton1")}
                     </MKButton>
                   </Grid>
                 </Grid>
@@ -236,11 +288,15 @@ function Calculator() {
       >
         {showResult > 0 && (
           <MKTypography variant="h3" mb={1}>
-            BMI is {bmi}
-            <br />
-            BFP is {bfp}
-            <br />
-            Balance Calories is {tdee}
+            <MKAlert color={bmi > 25 || bmi < 19 ? "error" : "success"}>
+              {t("bmi")} {bmi}
+            </MKAlert>
+            <MKAlert color={bfp > 30 ? "error" : "success"}>
+              {t("BFP")} {bfp}
+            </MKAlert>
+            <MKAlert color="info">
+              {t("calorieDeficit")} {bmr}
+            </MKAlert>
           </MKTypography>
         )}
       </Grid>
