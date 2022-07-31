@@ -95,7 +95,7 @@ function Presentation(props) {
               pr={{ md: 12, lg: 24, xl: 32 }}
               opacity={0.8}
             >
-              {t("homeH2")}{" "}
+              {t("homeH2")}
             </MKTypography>
             <Stack direction="row" spacing={1} mt={6} mb={3}>
               <MKButton variant="gradient" color="info" href="/pricing">
@@ -106,7 +106,7 @@ function Presentation(props) {
                 color="white"
                 href="https://fitlinez-front.vercel.app/calories"
               >
-                <MKTypography variant="h3">محاسبه کالری </MKTypography>
+                <MKTypography variant="h3">{t("homebutton2")} </MKTypography>
               </MKButton>
             </Stack>
           </Grid>

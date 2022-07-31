@@ -46,19 +46,19 @@ function Calculator() {
   const [bmr, setBmr] = useState(0);
 
   const genderList = [
-    { id: 1, name: "male", alias: "آقا" },
-    { id: 2, name: "female", alias: "خانم" },
+    { id: 1, name: "male", alias: t("male") },
+    { id: 2, name: "female", alias: t("female") },
   ];
   const activities = [
-    { id: 1, name: "sedentary", alias: "Little or no exercise" },
-    { id: 2, name: "light", alias: "Exercise 1-3 times/week" },
-    { id: 3, name: "moderate", alias: "Exercise 4-5 times/week" },
+    { id: 1, name: "sedentary", alias: t("sedentary") },
+    { id: 2, name: "light", alias: t("light") },
+    { id: 3, name: "moderate", alias: t("moderate") },
     {
       id: 4,
       name: "active",
-      alias: "Daily exercise or intense exercise 3-4 times/week",
+      alias: t("active"),
     },
-    { id: 5, name: "extreme", alias: "ntense exercise 6-7 times/week" },
+    { id: 5, name: "extreme", alias: t("extreme") },
   ];
   function handleSubmit(e) {
     e.preventDefault();
@@ -216,7 +216,9 @@ function Calculator() {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item xs={4} md={6}>
+                  <Grid item xs={12} md={6}>
+                    <MKTypography variant="caption">{t("gender")}</MKTypography>
+
                     <Select name="جنسیت" onChange={handleInput} variant="standard">
                       {genderList.map((genders) => (
                         <MenuItem key={genders.id} value={genders.name}>
@@ -225,7 +227,9 @@ function Calculator() {
                       ))}
                     </Select>
                   </Grid>
-                  <Grid item xs={8} md={6}>
+                  <Grid item xs={12} md={6}>
+                    <MKTypography variant="caption">{t("activity")}</MKTypography>
+
                     <Select name="فعالیت" onChange={handleInput} variant="standard">
                       {activities.map((activity) => (
                         <MenuItem key={activity.id} value={activity.name}>
@@ -253,7 +257,7 @@ function Calculator() {
                   </Grid>
                   <Grid item xs={12} md={12}>
                     <MKInput
-                      label={t("calcLabelNeck")}
+                      label={t("calcLabelHip")}
                       name="hip"
                       onChange={handleInput}
                       fullWidth
