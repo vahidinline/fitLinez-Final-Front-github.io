@@ -16,55 +16,31 @@ Coded by www.creative-tim.com
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-// import Tooltip from "@mui/material/Tooltip";
-// import Icon from "@mui/material/Icon";
 
-// Material Kit 2 PRO React components
 import MKBox from "components/MKBox";
-// import MKButton from "components/MKButton";
-// import MKAvatar from "components/MKAvatar";
+
 import MKTypography from "components/MKTypography";
 
-// Material Kit 2 PRO React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
-// import DefaultFooter from "examples/Footers/DefaultFooter";
 
-// VirtualReality page components
-// import TodoList from "pages/Extra/VirtualReality/components/TodoList";
-// import TodoCard from "pages/Extra/VirtualReality/components/TodoCard";
-// import Emails from "pages/Extra/VirtualReality/components/Emails";
-// import MediaPlayer from "pages/Extra/VirtualReality/components/MediaPlayer";
-// import Messages from "pages/Extra/VirtualReality/components/Messages";
-
-// Routes
 import routes from "routes";
-// import footerRoutes from "footer.routes";
 
-// Images
-// import bgImage from "assets/images/vr-bg.jpg";
-// import team1 from "assets/images/team-1.jpg";
-// import sunCloud from "assets/images/small-logos/icon-sun-cloud.png";
 import Calculator from "pages/Presentation/sections/calculator";
 
 function VirtualReality() {
   return (
     <>
-      <DefaultNavbar routes={routes} />
+      <DefaultNavbar routes={routes} dark transparent />
       <MKBox
         component="header"
         minHeight="100vh"
         width="100%"
-        // sx={{
-        //   backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
-        //     `${linearGradient(
-        //       rgba(gradients.dark.main, 0.6),
-        //       rgba(gradients.dark.state, 0.1)
-        //     )}, url(${bgImage})`,
-        //   backgroundSize: "cover",
-        //   backgroundPosition: "center",
-        //   display: "grid",
-        //   placeItems: "center",
-        // }}
+        sx={{
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: "grid",
+          placeItems: "center",
+        }}
       >
         <Container>
           <Grid container spacing={3} justifyContent="center" pt={{ xs: 16, lg: 6 }}>

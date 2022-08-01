@@ -37,12 +37,17 @@ import routes from "routes";
 // Images
 import bgImage from "assets/images/bg-presentation.jpg";
 import MKButton from "components/MKButton";
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 
 function Presentation(props) {
   const { email } = props;
   console.log(email);
+  const { i18n } = useTranslation();
 
+  const langs = {
+    en: { nativeName: "English" },
+    fa: { nativeName: "Persian" },
+  };
   const { t } = useTranslation();
 
   return (
@@ -57,6 +62,7 @@ function Presentation(props) {
         }}
         sticky
       />
+
       <MKBox
         minHeight="75vh"
         width="100%"
@@ -68,6 +74,20 @@ function Presentation(props) {
           placeItems: "center",
         }}
       >
+        <MKBox pt={2}>
+          {Object.keys(langs).map((lng) => (
+            <MKButton
+              variant="text"
+              color="white"
+              type="submit"
+              key={lng}
+              onClick={() => i18n.changeLanguage(lng)}
+              disabled={i18n.resolvedLanguage === lng}
+            >
+              <Typography color="Dark">{lng === "fa" ? "فارسی" : "English"}</Typography>
+            </MKButton>
+          ))}
+        </MKBox>
         <Container>
           <Grid
             container
