@@ -139,6 +139,7 @@ function DefaultPricingCard({ color, badge, price, specifications, action, shado
                 component="a"
                 href={action.route}
                 onClick={action.onClick}
+                disabled={action.disable}
                 target="_blank"
                 rel="noreferrer"
                 variant="gradient"

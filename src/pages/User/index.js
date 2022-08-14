@@ -39,7 +39,7 @@ function SignUpForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`https://backendfitlinez.herokuapp.com/updateProfile`, userData)
+      .post(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/updateProfile`, userData)
       .then((res) => {
         console.log(res.data);
         setUserData(res);

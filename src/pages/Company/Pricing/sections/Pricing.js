@@ -27,7 +27,8 @@ function Pricing() {
 
   const [activeTab, setActiveTab] = useState(0);
   const [tabType, setTabType] = useState("monthly");
-
+  const [buttonDisable, setButtonDisable] = useState(false);
+  console.log(buttonDisable);
   const handleTabType = ({ currentTarget }, newValue) => {
     setActiveTab(newValue);
     setTabType(currentTarget.id);
@@ -60,9 +61,9 @@ function Pricing() {
     else if (id === 2) window.location = "https://zarinp.al/423704";
     else if (id === 3) window.location = "https://zarinp.al/423709";
   };
-
   const handlePayment = ({ id }) => {
-    fetch(`${process.env.REACT_APP_SERVER_PAYMENT}/create-checkout-session`, {
+    setButtonDisable(true);
+    fetch(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/create-checkout-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -133,7 +134,7 @@ function Pricing() {
                     id="eur"
                     label={
                       <MKBox py={0.5} px={2} color="inherit">
-                        Stripe Payment
+                        Stripe Payment. the price does not include VAT
                       </MKBox>
                     }
                   />
@@ -141,7 +142,7 @@ function Pricing() {
                     id="rial"
                     label={
                       <MKBox py={0.5} px={2} color="inherit">
-                        پرداخت ریالی از طریق شبکه شتاب
+                        پرداخت ریالی
                       </MKBox>
                     }
                   />
@@ -222,6 +223,7 @@ function Pricing() {
                   ]}
                   action={{
                     type: "external",
+                    disabled: buttonDisable,
                     color: "info",
                     onClick:
                       tabType === "rial"
