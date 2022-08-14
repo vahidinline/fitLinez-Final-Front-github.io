@@ -175,6 +175,13 @@ function Pricing() {
                           : "Centering on teaching you about smarter meal plan",
                       includes: true,
                     },
+                    {
+                      label:
+                        tabType === "rial"
+                          ? "vat is not included in the price"
+                          : "vat is not included in the price",
+                      includes: true,
+                    },
                   ]}
                   action={{
                     type: "external",
@@ -220,6 +227,13 @@ function Pricing() {
                     },
 
                     { label: tabType === "rial" ? "پشتیبانی" : "Chat Support", includes: true },
+                    {
+                      label:
+                        tabType === "rial"
+                          ? "vat is not included in the price"
+                          : "vat is not included in the price",
+                      includes: true,
+                    },
                   ]}
                   action={{
                     type: "external",
@@ -268,6 +282,13 @@ function Pricing() {
                     },
 
                     { label: tabType === "rial" ? "پشتیبانی" : "Chat Support", includes: true },
+                    {
+                      label:
+                        tabType === "rial"
+                          ? "vat is not included in the price"
+                          : "vat is not included in the price",
+                      includes: true,
+                    },
                   ]}
                   action={{
                     type: "external",
