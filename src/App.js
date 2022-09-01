@@ -13,7 +13,6 @@ import Presentation from "layouts/pages/presentation";
 
 // Material Kit 2 PRO React routes
 import routes from "routes";
-
 import SignUpForm from "pages/User";
 import Thankyou from "pages/User/thanks";
 

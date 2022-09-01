@@ -9,13 +9,12 @@ import Card from "@mui/material/Card";
 import MKBox from "components/MKBox";
 // import MKBadge from "components/MKBadge";
 import MKTypography from "components/MKTypography";
-import MKSocialButton from "components/MKSocialButton";
+// import MKSocialButton from "components/MKSocialButton";
 // import MKButton from "components/MKButton";
 
 // Material Kit 2 PRO React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 // import DefaultFooter from "examples/Footers/DefaultFooter";
-import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 
 // Presentation page sections
 // import Counters from "pages/Presentation/sections/Counters";
@@ -25,10 +24,9 @@ import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 // import Pages from "pages/Presentation/sections/Pages";
 // import Testimonials from "pages/Presentation/sections/Testimonials";
 import Pricing from "pages/Company/Pricing/sections/Pricing";
-import { useTranslation, Trans } from "react-i18next";
 
 // Presentation page components
-import BuiltByDevelopers from "pages/Presentation/components/BuiltByDevelopers";
+// import BuiltByDevelopers from "pages/Presentation/components/BuiltByDevelopers";
 
 // Routes
 import routes from "routes";
@@ -37,18 +35,17 @@ import routes from "routes";
 // Images
 import bgImage from "assets/images/bg-presentation.jpg";
 import MKButton from "components/MKButton";
-import { Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 
 function Presentation(props) {
   const { email } = props;
   console.log(email);
-  const { i18n } = useTranslation();
 
-  const langs = {
-    en: { nativeName: "English" },
-    fa: { nativeName: "Persian" },
-  };
-  const { t } = useTranslation();
+  // const langs = {
+  //   en: { nativeName: "English" },
+  //   fa: { nativeName: "Persian" },
+  // };
+  // const { t } = useTranslation();
 
   return (
     <>
@@ -57,7 +54,7 @@ function Presentation(props) {
         action={{
           type: "internal",
           route: "/pricing",
-          label: <Trans i18nKey="courses">Courses</Trans>,
+          label: "دوره ها",
           color: "info",
         }}
         sticky
@@ -74,7 +71,7 @@ function Presentation(props) {
           placeItems: "center",
         }}
       >
-        <MKBox pt={2}>
+        {/* <MKBox pt={2}>
           {Object.keys(langs).map((lng) => (
             <MKButton
               variant="text"
@@ -87,7 +84,7 @@ function Presentation(props) {
               <Typography color="Dark">{lng === "fa" ? "فارسی" : "English"}</Typography>
             </MKButton>
           ))}
-        </MKBox>
+        </MKBox> */}
         <Container>
           <Grid
             container
@@ -106,27 +103,27 @@ function Presentation(props) {
                 },
               })}
             >
-              {t("homeH1")}
+              فیتلاینز
             </MKTypography>
             <MKTypography
-              variant="body1"
+              variant="h4"
               color="white"
               mt={1}
               pr={{ md: 12, lg: 24, xl: 32 }}
-              opacity={0.8}
+              opacity={1}
             >
-              {t("homeH2")}
+              شروع یک لایف استایل جدید، سالم و موثر
             </MKTypography>
             <Stack direction="row" spacing={1} mt={6} mb={3}>
               <MKButton variant="gradient" color="info" href="/pricing">
-                {t("homebutton1")}
+                دوره ها
               </MKButton>
               <MKButton
                 variant="gradient"
                 color="white"
                 href="https://fitlinez-front.vercel.app/calories"
               >
-                <MKTypography variant="h3">{t("homebutton2")} </MKTypography>
+                <MKTypography variant="h4">محاسبه کالری</MKTypography>
               </MKButton>
             </Stack>
           </Grid>
@@ -148,19 +145,19 @@ function Presentation(props) {
         {/* <DesignBlocks /> */}
         {/* <AuthPages />
         <Pages /> */}
-        <Container sx={{ mt: 6 }}>
+        {/* <Container sx={{ mt: 6 }}>
           <BuiltByDevelopers />
-        </Container>
+        </Container> */}
 
-        <Container>
+        {/* <Container>
           <Grid container spacing={3}>
             <Grid item xs={12} lg={4}>
               <FilledInfoCard
                 variant="gradient"
                 color="info"
                 icon="flag"
-                title="Getting Started"
-                description="Check the possible ways of working with your body, Make it hqarder, every Day"
+                title="از کجا شروع کنیم"
+                description="اینجا قرار نیست رژیم غذایی بهت دیکته بشه"
               />
             </Grid>
             <Grid item xs={12} lg={4}>
@@ -180,11 +177,11 @@ function Presentation(props) {
               />
             </Grid>
           </Grid>
-        </Container>
+        </Container> */}
         {/* <Testimonials /> */}
         <Pricing />
         <MKBox pt={18} pb={6}>
-          <Container>
+          {/* <Container>
             <Grid container spacing={3}>
               <Grid item xs={12} lg={5} ml="auto" sx={{ textAlign: { xs: "center", lg: "left" } }}>
                 <MKTypography variant="h4" fontWeight="bold" mb={0.5}>
@@ -230,7 +227,7 @@ function Presentation(props) {
                 </MKSocialButton>
               </Grid>
             </Grid>
-          </Container>
+          </Container> */}
         </MKBox>
       </Card>
       {/* <MKBox pt={6} px={1} mt={6}>

@@ -44,15 +44,10 @@ function BuiltByDevelopers() {
       <Container>
         <Grid container item xs={12} lg={6} sx={{ ml: { xs: 0, lg: 6 } }}>
           <MKTypography variant="h4" color="white" fontWeight="bold">
-            Build your Body
+            بدن جدید خودت رو بساز
           </MKTypography>
-          <MKTypography variant="h1" color="white" mb={1}>
-            Complex Healthy Life style for EveryOne
-          </MKTypography>
-          <MKTypography variant="body1" color="white" opacity={0.8} mb={2}>
-            From Protein, carbs, Fat to complex macros, you will find the full knowledge. You will
-            create unlimited combinations for your future.
-          </MKTypography>
+          <MKTypography variant="h1" color="white" mb={1}></MKTypography>
+          <MKTypography variant="body1" color="white" opacity={0.8} mb={2}></MKTypography>
           {/* <MKTypography
             component="a"
             href="https://www.creative-tim.com/learning-lab/react/overview/material-kit/"

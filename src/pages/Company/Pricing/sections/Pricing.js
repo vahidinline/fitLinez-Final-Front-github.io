@@ -15,7 +15,6 @@ import MKTypography from "components/MKTypography";
 // Material Kit 2 PRO React examples
 import DefaultPricingCard from "examples/Cards/PricingCards/DefaultPricingCard";
 
-import { useTranslation } from "react-i18next";
 // import axios from "axios";
 
 // Imags
@@ -23,10 +22,8 @@ const bgImage =
   "https://images.unsplash.com/photo-1467541473380-93479a5a3ffa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2246&amp;q=80";
 
 function Pricing() {
-  const { t } = useTranslation();
-
   const [activeTab, setActiveTab] = useState(0);
-  const [tabType, setTabType] = useState("monthly");
+  const [tabType, setTabType] = useState("rial");
   const [buttonDisable, setButtonDisable] = useState(false);
   console.log(buttonDisable);
   const handleTabType = ({ currentTarget }, newValue) => {
@@ -109,17 +106,17 @@ function Pricing() {
             sx={{ mx: "auto", textAlign: "center" }}
           >
             <MKBadge
-              badgeContent="pricing"
+              badgeContent="دوره ها"
               variant="gradient"
               container
               color="dark"
               sx={{ mb: 1 }}
             />
             <MKTypography variant="h3" color="white" mb={2}>
-              {t("pricingtitle")}
+              مشاهده پکیج های کوچینگ
             </MKTypography>
             <MKTypography variant="body2" color="white">
-              {t("pricingheadline")}
+              پرداخت از طریق شبکه بانکی شتاب و همچنین پرداخت بین المللی امکان پذیر است
             </MKTypography>
           </Grid>
         </Container>
@@ -134,7 +131,7 @@ function Pricing() {
                     id="eur"
                     label={
                       <MKBox py={0.5} px={2} color="inherit">
-                        Stripe Payment. the price does not include VAT
+                        پرداخت ارزی
                       </MKBox>
                     }
                   />
@@ -176,10 +173,7 @@ function Pricing() {
                       includes: true,
                     },
                     {
-                      label:
-                        tabType === "rial"
-                          ? "vat is not included in the price"
-                          : "vat is not included in the price",
+                      label: tabType === "rial" ? "" : "vat is not included in the price",
                       includes: true,
                     },
                   ]}
@@ -228,10 +222,7 @@ function Pricing() {
 
                     { label: tabType === "rial" ? "پشتیبانی" : "Chat Support", includes: true },
                     {
-                      label:
-                        tabType === "rial"
-                          ? "vat is not included in the price"
-                          : "vat is not included in the price",
+                      label: tabType === "rial" ? "" : "vat is not included in the price",
                       includes: true,
                     },
                   ]}
@@ -283,10 +274,7 @@ function Pricing() {
 
                     { label: tabType === "rial" ? "پشتیبانی" : "Chat Support", includes: true },
                     {
-                      label:
-                        tabType === "rial"
-                          ? "vat is not included in the price"
-                          : "vat is not included in the price",
+                      label: tabType === "rial" ? "" : "vat is not included in the price",
                       includes: true,
                     },
                   ]}

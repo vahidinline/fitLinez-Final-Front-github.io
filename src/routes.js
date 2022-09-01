@@ -100,33 +100,33 @@ import PaymentGateWay from "./pages/Company/payment";
 
 const routes = [
   {
-    name: "pages",
+    name: "لیست",
     icon: <Icon>dashboard</Icon>,
     columns: 3,
     rowsPerColumn: 2,
     collapse: [
       {
-        name: "company",
+        name: "فیتلاینز",
         collapse: [
           {
-            name: "about us",
+            name: "درباره من",
             route: "/about-us",
             component: <AboutUs />,
           },
           {
-            name: "pricing",
+            name: "دوره ها",
             route: "/pricing",
             component: <Pricing />,
           },
           {
-            name: "Calculator",
+            name: "محاسبه کالری",
             route: "/calculator",
             component: <VirtualReality />,
           },
         ],
       },
       {
-        name: "support",
+        name: "پشتیبانی",
         collapse: [
           // {
           //   name: "help center",
@@ -134,17 +134,17 @@ const routes = [
           //   component: <HelpCenter />,
           // },
           {
-            name: "contact us",
+            name: "ارتباط با من",
             route: "/contact-us",
             component: <ContactUs />,
           },
           {
-            name: "Payment",
+            name: "پرداخت",
             route: "/payment",
             component: <PaymentGateWay />,
           },
           {
-            name: "privacy",
+            name: "حریم خصوصی",
             route: "/privacy",
             component: <Privacy />,
           },
