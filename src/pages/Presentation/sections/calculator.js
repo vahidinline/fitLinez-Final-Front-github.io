@@ -117,7 +117,7 @@ function Calculator() {
       });
     };
     const handleSubmitUserInfo = () => {
-      axios.post("http://localhost:8080/cta", userInfo).then((res) => {
+      axios.post(`${process.env.REACT_APP_SERVER_PAYMENT}/cta`, userInfo).then((res) => {
         if (res.data.status === "OK200") setShowResult(true);
       });
     };
