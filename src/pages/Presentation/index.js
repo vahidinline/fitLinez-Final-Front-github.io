@@ -118,11 +118,7 @@ function Presentation(props) {
               <MKButton variant="gradient" color="info" href="/pricing">
                 دوره ها
               </MKButton>
-              <MKButton
-                variant="gradient"
-                color="white"
-                href="https://fitlinez-front.vercel.app/calories"
-              >
+              <MKButton variant="gradient" color="white" href="/calculator">
                 <MKTypography variant="h4">محاسبه کالری</MKTypography>
               </MKButton>
             </Stack>
