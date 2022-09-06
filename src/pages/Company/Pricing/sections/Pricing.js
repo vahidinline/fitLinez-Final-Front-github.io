@@ -25,7 +25,6 @@ function Pricing() {
   const [activeTab, setActiveTab] = useState(0);
   const [tabType, setTabType] = useState("rial");
   const [buttonDisable, setButtonDisable] = useState(false);
-  console.log(buttonDisable);
   const handleTabType = ({ currentTarget }, newValue) => {
     setActiveTab(newValue);
     setTabType(currentTarget.id);

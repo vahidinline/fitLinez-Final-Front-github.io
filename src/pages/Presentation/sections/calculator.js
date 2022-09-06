@@ -81,7 +81,7 @@ function Calculator() {
   };
 
   const handleSubmitUserInfo = () => {
-    axios.post(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/cta`, userData).then((res) => {
+    axios.post(`${process.env.REACT_APP_SERVER_PAYMENT}/cta`, userData).then((res) => {
       console.log(res);
     });
   };
