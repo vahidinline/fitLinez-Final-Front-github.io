@@ -40,6 +40,7 @@ function Pricing() {
     setButtonDisable(true);
     fetch(`${process.env.REACT_APP_SERVER_PAYMENT}/create-checkout-session`, {
       method: "POST",
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
