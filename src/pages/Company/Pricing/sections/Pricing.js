@@ -31,28 +31,6 @@ function Pricing() {
     setTabType(currentTarget.id);
   };
 
-  // const handleSubscription = () => {
-  //   fetch("http://localhost:8080/Sub-checkout-session", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       items: [{ name: "priceId", value: "price_1LOgmSAB6MVrXxqz6s6ATonA" }],
-  //     }),
-  //   })
-  //     .then((res) => {
-  //       if (res.ok) return res.json();
-  //       return res.json().then((json) => Promise.reject(json));
-  //     })
-  //     .then(({ url }) => {
-  //       window.location = url;
-  //     })
-  //     .catch((e) => {
-  //       console.error(e.error);
-  //     });
-  // };
-
   const handlePaymentRial = ({ id }) => {
     if (id === 1) window.location = "https://zarinp.al/423697";
     else if (id === 2) window.location = "https://zarinp.al/423704";
@@ -128,18 +106,18 @@ function Pricing() {
               <AppBar position="static">
                 <Tabs value={activeTab} onChange={handleTabType}>
                   <Tab
-                    id="eur"
-                    label={
-                      <MKBox py={0.5} px={2} color="inherit">
-                        پرداخت ارزی
-                      </MKBox>
-                    }
-                  />
-                  <Tab
                     id="rial"
                     label={
                       <MKBox py={0.5} px={2} color="inherit">
                         پرداخت ریالی
+                      </MKBox>
+                    }
+                  />
+                  <Tab
+                    id="eur"
+                    label={
+                      <MKBox py={0.5} px={2} color="inherit">
+                        پرداخت ارزی
                       </MKBox>
                     }
                   />
