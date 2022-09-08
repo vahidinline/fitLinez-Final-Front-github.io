@@ -10,17 +10,20 @@ import MKInput from "components/MKInput";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Calculator() {
+  const navigate = useNavigate();
+
   const [userData, setUserData] = useState({
-    age: 39,
-    height: 189,
-    gender: "male",
-    weight: "84",
+    age: "",
+    height: "",
+    gender: "female",
+    weight: "",
     activity: "active",
-    neck: 34,
-    waist: 84,
-    hip: 90,
+    neck: "",
+    waist: "",
+    hip: "",
     name: "",
     email: "",
   });
@@ -56,14 +59,29 @@ function Calculator() {
   };
 
   const handleSubmitUserInfo = () => {
-    axios
-      .post(`${process.env.REACT_APP_SERVER_PAYMENT}/cta`, userData)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (
+      userData.email &&
+      userData.name &&
+      userData.age &&
+      userData.height &&
+      userData.weight &&
+      userData.neck &&
+      userData.waist &&
+      userData.hip
+    ) {
+      alert(`نتایج به ${userData.email}  ارسال خواهد شد. لطفا ایمیل خود را چک کنید`);
+
+      axios
+        .post(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/cta`, userData)
+        .then(() => {
+          navigate("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      alert("لطفا تمامی فیلد ها را پر کنید");
+    }
   };
 
   return (
