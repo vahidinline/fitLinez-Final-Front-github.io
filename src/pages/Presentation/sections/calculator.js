@@ -73,7 +73,8 @@ function Calculator() {
 
       axios
         .post(`${process.env.REACT_APP_SERVER_PAYMENT}/cta`, userData)
-        .then(() => {
+        .then((res) => {
+          console.log(res);
           navigate("/");
         })
         .catch((err) => {
@@ -105,13 +106,34 @@ function Calculator() {
             <MKBox p={3}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={12}>
-                  <MKInput label="سن" name="age" onChange={handleInput} fullWidth />
+                  <MKInput
+                    label="سن"
+                    name="age"
+                    onChange={handleInput}
+                    type="number"
+                    inputProps={{ min: 1, max: 150 }}
+                    fullWidth
+                  />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput label="قد" name="height" onChange={handleInput} fullWidth />
+                  <MKInput
+                    label="قد"
+                    name="height"
+                    onChange={handleInput}
+                    fullWidth
+                    type="number"
+                    inputProps={{ min: 120, max: 250 }}
+                  />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput label="وزن" name="weight" onChange={handleInput} fullWidth />
+                  <MKInput
+                    label="وزن"
+                    name="weight"
+                    onChange={handleInput}
+                    fullWidth
+                    type="number"
+                    inputProps={{ min: 20, max: 250 }}
+                  />
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <MKTypography variant="caption">جنسیت</MKTypography>
@@ -137,13 +159,34 @@ function Calculator() {
                 </Grid>
 
                 <Grid item xs={12} md={12}>
-                  <MKInput label="دور کمر" name="waist" onChange={handleInput} fullWidth />
+                  <MKInput
+                    label="دور کمر"
+                    name="waist"
+                    onChange={handleInput}
+                    fullWidth
+                    type="number"
+                    inputProps={{ min: 10, max: 150 }}
+                  />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput label="دور گردن" name="neck" onChange={handleInput} fullWidth />
+                  <MKInput
+                    label="دور گردن"
+                    name="neck"
+                    onChange={handleInput}
+                    fullWidth
+                    type="number"
+                    inputProps={{ min: 10, max: 100 }}
+                  />
                 </Grid>
                 <Grid item xs={12} md={12}>
-                  <MKInput label="دور باسن" name="hip" onChange={handleInput} fullWidth />
+                  <MKInput
+                    label="دور باسن"
+                    name="hip"
+                    onChange={handleInput}
+                    fullWidth
+                    type="number"
+                    inputProps={{ min: 40, max: 250 }}
+                  />
                 </Grid>
                 <Grid item xs={12} md={12}>
                   <MKInput label="نام" name="name" onChange={handleInput} fullWidth required />
