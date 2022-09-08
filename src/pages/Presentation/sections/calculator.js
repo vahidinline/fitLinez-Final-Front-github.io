@@ -72,7 +72,7 @@ function Calculator() {
       alert(`نتایج به ${userData.email}  ارسال خواهد شد. لطفا ایمیل خود را چک کنید`);
 
       axios
-        .post(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/cta`, userData)
+        .post(`${process.env.REACT_APP_SERVER_PAYMENT}/cta`, userData)
         .then(() => {
           navigate("/");
         })
