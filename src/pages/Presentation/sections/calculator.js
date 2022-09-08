@@ -9,7 +9,6 @@ import MKBox from "components/MKBox";
 import MKInput from "components/MKInput";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
-import fitnessCalculatorFunctions from "fitness-calculator";
 import axios from "axios";
 
 function Calculator() {
@@ -27,9 +26,6 @@ function Calculator() {
   });
 
   // const [calorie, setCalorie] = useState();
-  const [bmi, setBmi] = useState(0);
-  const [bfp, setBfp] = useState(0);
-  const [bmr, setBmr] = useState(0);
 
   const genderList = [
     { id: 1, name: "male", alias: "آقا" },
@@ -46,30 +42,9 @@ function Calculator() {
     },
     { id: 5, name: "extreme", alias: "تمرین شدید در تمام روز های هفته" },
   ];
+
   function handleSubmit(e) {
     e.preventDefault();
-    setBmi(fitnessCalculatorFunctions.BMI(Number(userData.height), Number(userData.weight)));
-
-    setBfp(
-      fitnessCalculatorFunctions.BFP(
-        userData.gender,
-        Number(userData.height),
-        Number(userData.weight),
-        Number(userData.neck),
-        Number(userData.waist),
-        Number(userData.hip)
-      )
-    );
-
-    setBmr(
-      fitnessCalculatorFunctions.BMR(
-        userData.gender,
-        Number(userData.age),
-        Number(userData.height),
-        Number(userData.weight)
-      )
-    );
-    // setShowform1(false);
   }
 
   const handleInput = (e) => {
@@ -81,12 +56,16 @@ function Calculator() {
   };
 
   const handleSubmitUserInfo = () => {
-    axios.post(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/cta`, userData).then((res) => {
-      console.log(res);
-    });
+    axios
+      .post(`${process.env.REACT_APP_SERVER_PAYMENT}/cta`, userData)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
-  console.log(bmi, bmr, bfp, userData);
   return (
     <MKBox component="section" py={12} alignItems="center" justifyContent="center">
       <Grid container item justifyContent="center" xs={10} lg={7} mx="auto" textAlign="center">
@@ -154,6 +133,9 @@ function Calculator() {
                 <Grid item xs={12} md={12}>
                   <MKInput label="ایمیل" name="email" onChange={handleInput} fullWidth required />
                 </Grid>
+                {/* <Grid>
+                  <Checkbox disabled />
+                </Grid> */}
                 <Grid item xs={12} md={12}>
                   <MKButton
                     variant="gradient"
