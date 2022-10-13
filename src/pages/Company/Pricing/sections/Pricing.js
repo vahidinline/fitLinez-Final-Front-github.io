@@ -37,7 +37,7 @@ function Pricing() {
   };
   const handlePayment = ({ id }) => {
     setButtonDisable(true);
-    fetch(`${process.env.REACT_APP_SERVER_PAYMENT}/create-checkout-session`, {
+    fetch(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/subscription`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -159,7 +159,7 @@ function Pricing() {
                     onClick:
                       tabType === "rial"
                         ? () => handlePaymentRial({ id: 1 })
-                        : () => handlePayment({ id: 1 }),
+                        : () => handlePayment({ id: "price_1LsSUmAB6MVrXxqzPmpHaaGz" }),
                     color: "info",
                     label: tabType === "rial" ? "خرید " : "Buy",
                   }}
@@ -210,7 +210,7 @@ function Pricing() {
                     onClick:
                       tabType === "rial"
                         ? () => handlePaymentRial({ id: 2 })
-                        : () => handlePayment({ id: 2 }),
+                        : () => handlePayment({ id: "price_1Ls4UvAB6MVrXxqzI5vvNVDZ" }),
                     label: tabType === "rial" ? "خرید " : "Buy",
                   }}
                 />
@@ -260,7 +260,7 @@ function Pricing() {
                     onClick:
                       tabType === "rial"
                         ? () => handlePaymentRial({ id: 3 })
-                        : () => handlePayment({ id: 3 }),
+                        : () => handlePayment({ id: "price_1LsSU1AB6MVrXxqz16rd5h3D" }),
                     color: "light",
                     label: tabType === "rial" ? "خرید " : "Buy",
                   }}

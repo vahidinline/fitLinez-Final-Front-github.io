@@ -31,7 +31,6 @@ import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 // import Information from "pages/LandingPages/AboutUs/sections/Information";
 import Team from "pages/Company/AboutUs/sections/Team";
 // import Featuring from "pages/LandingPages/AboutUs/sections/Featuring";
-import Newsletter from "pages/Company/AboutUs/sections/Newsletter";
 
 // Routes
 import routes from "routes";
@@ -130,7 +129,7 @@ function AboutUs() {
         {/* <Information /> */}
         <Team />
         {/* <Featuring /> */}
-        <Newsletter />
+        {/* <Newsletter /> */}
       </Card>
       {/* <MKBox pt={6} px={1} mt={6}>
         <DefaultFooter content={footerRoutes} />

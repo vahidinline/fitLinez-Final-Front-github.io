@@ -58,6 +58,7 @@ function Presentation(props) {
           color: "info",
         }}
         sticky
+        transparent
       />
 
       <MKBox
