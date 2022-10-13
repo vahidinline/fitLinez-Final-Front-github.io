@@ -4,49 +4,49 @@ import Grid from "@mui/material/Grid";
 
 // Material Kit 2 PRO React components
 import MKBox from "components/MKBox";
-import MKInput from "components/MKInput";
-import MKButton from "components/MKButton";
-import MKTypography from "components/MKTypography";
+// import MKInput from "components/MKInput";
+// import MKButton from "components/MKButton";
+// import MKTypography from "components/MKTypography";
 import MKAlert from "components/MKAlert";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import { FormControl, InputLabel } from "@mui/material";
-import { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+// import MenuItem from "@mui/material/MenuItem";
+// import Select from "@mui/material/Select";
+// import { FormControl, InputLabel } from "@mui/material";
+// import { useState } from "react";
+// import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 
 function SignUpForm() {
-  const navigate = useNavigate();
-  const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    age: "",
-    gender: "",
-    weight: "",
-    height: "",
-    target: "",
-    refer: "",
-    activity: "",
-    location: "",
-  });
-  const handleInput = (e) => {
-    const { name, value } = e.target;
-    setUserData({
-      ...userData,
-      [name]: value,
-    });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/updateProfile`, userData)
-      .then((res) => {
-        console.log(res.data);
-        setUserData(res);
-      })
-      .then(navigate("/thankyou"))
-      .catch((e) => console.log(e));
-  };
+  // const navigate = useNavigate();
+  // const [userData, setUserData] = useState({
+  //   name: "",
+  //   email: "",
+  //   age: "",
+  //   gender: "",
+  //   weight: "",
+  //   height: "",
+  //   target: "",
+  //   refer: "",
+  //   activity: "",
+  //   location: "",
+  // });
+  // const handleInput = (e) => {
+  //   const { name, value } = e.target;
+  //   setUserData({
+  //     ...userData,
+  //     [name]: value,
+  //   });
+  // };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //     .post(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/updateProfile`, userData)
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       setUserData(res);
+  //     })
+  //     .then(navigate("/thankyou"))
+  //     .catch((e) => console.log(e));
+  // };
 
   return (
     <MKBox component="section" py={12}>
@@ -61,18 +61,14 @@ function SignUpForm() {
           mb={{ xs: 0, md: 6 }}
           textAlign="center"
         >
-          <MKTypography variant="h3" mb={1}>
+          {/* <MKTypography variant="h3" mb={1}>
             Register form
-          </MKTypography>
+          </MKTypography> */}
           <Grid item xs={12}>
-            <MKAlert color="success">
-              {" "}
-              Dear user; your payment has been succesful. Please fill the below form to complete
-              your registration
-            </MKAlert>
+            <MKAlert color="success">Dear user, your payment has been succesful.</MKAlert>
           </Grid>
         </Grid>
-        <Grid container item xs={12} lg={8} sx={{ mx: "auto" }}>
+        {/* <Grid container item xs={12} lg={8} sx={{ mx: "auto" }}>
           <form onSubmit={handleSubmit}>
             <MKBox width="100%" autocomplete="off">
               <MKBox p={3}>
@@ -199,7 +195,7 @@ function SignUpForm() {
               </MKBox>
             </MKBox>
           </form>
-        </Grid>
+        </Grid> */}
       </Container>
     </MKBox>
   );
