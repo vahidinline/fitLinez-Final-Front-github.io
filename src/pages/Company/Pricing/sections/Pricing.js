@@ -30,6 +30,7 @@ function Pricing() {
     setTabType(currentTarget.id);
   };
 
+  // const [plans, setPlans] = useState([]);
   const handlePaymentRial = ({ id }) => {
     if (id === 1) window.location = "https://zarinp.al/423697";
     else if (id === 2) window.location = "https://zarinp.al/423704";
