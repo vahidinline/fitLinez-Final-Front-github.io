@@ -37,7 +37,7 @@ function Pricing() {
   };
   const handlePayment = ({ id }) => {
     setButtonDisable(true);
-    fetch(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/subscription`, {
+    fetch(`${process.env.REACT_APP_SERVER_PAYMENT}/subscription`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
