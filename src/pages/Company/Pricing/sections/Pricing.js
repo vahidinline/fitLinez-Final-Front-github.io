@@ -81,9 +81,8 @@ function Pricing() {
       .then(({ url }) => {
         window.location = url;
       })
-      .catch((e) => {
+      .catch(() => {
         if (id === 1) window.location = "https://buy.stripe.com/14k4hw7bu9JsdZ6dRa";
-      else 
       });
   };
   return (
