@@ -178,7 +178,7 @@ function Pricing() {
                       includes: true,
                     },
                     {
-                      label: tabType === "rial" ? "" : "vat is not included in the price",
+                      label: tabType === "rial" ? "" : "VAT may apply based on your location",
                       includes: true,
                     },
                   ]}
@@ -227,7 +227,7 @@ function Pricing() {
 
                     { label: tabType === "rial" ? "پشتیبانی" : "Chat Support", includes: true },
                     {
-                      label: tabType === "rial" ? "" : "vat is not included in the price",
+                      label: tabType === "rial" ? "" : "VAT may apply based on your location",
                       includes: true,
                     },
                   ]}
@@ -279,7 +279,7 @@ function Pricing() {
 
                     { label: tabType === "rial" ? "پشتیبانی" : "Chat Support", includes: true },
                     {
-                      label: tabType === "rial" ? "" : "vat is not included in the price",
+                      label: tabType === "rial" ? "" : "VAT may apply based on your location",
                       includes: true,
                     },
                   ]}
