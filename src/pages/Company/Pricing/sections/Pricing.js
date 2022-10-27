@@ -58,7 +58,7 @@ function Pricing() {
   };
   const handleOnePayment = ({ id }) => {
     setButtonDisable(true);
-    fetch(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/create-checkout-session`, {
+    fetch(`${process.env.REACT_APP_SERVER_PAYMENT}/create-checkout-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
