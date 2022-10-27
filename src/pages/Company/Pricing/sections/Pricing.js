@@ -52,13 +52,15 @@ function Pricing() {
           window.location = url;
         })
         .catch(() => {
-          if (id === "price_1Ls4UvAB6MVrXxqzI5vvNVDZ")
+          if (id === 1) window.location = "https://buy.stripe.com/14k4hw7bu9JsdZ6dRa";
+          else if (id === "price_1Ls4UvAB6MVrXxqzI5vvNVDZ")
             window.location = "https://buy.stripe.com/eVa6pE1Rag7QbQY00i";
           else if (id === "price_1LsSU1AB6MVrXxqz16rd5h3D")
             window.location = "https://buy.stripe.com/eVa9BQcvO4p86wE7sN";
         });
     } catch (error) {
-      if (id === "price_1Ls4UvAB6MVrXxqzI5vvNVDZ")
+      if (id === 1) window.location = "https://buy.stripe.com/14k4hw7bu9JsdZ6dRa";
+      else if (id === "price_1Ls4UvAB6MVrXxqzI5vvNVDZ")
         window.location = "https://buy.stripe.com/eVa6pE1Rag7QbQY00i";
       else if (id === "price_1LsSU1AB6MVrXxqz16rd5h3D")
         window.location = "https://buy.stripe.com/eVa9BQcvO4p86wE7sN";
