@@ -14,9 +14,9 @@ import MKTypography from "components/MKTypography";
 
 // Material Kit 2 PRO React examples
 import DefaultPricingCard from "examples/Cards/PricingCards/DefaultPricingCard";
+import axios from "axios";
 
 // import axios from "axios";
-
 // Imags
 const bgImage =
   "https://images.unsplash.com/photo-1467541473380-93479a5a3ffa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2246&amp;q=80";
@@ -36,25 +36,33 @@ function Pricing() {
   };
   const handlePayment = ({ id }) => {
     setButtonDisable(true);
-    fetch(`${process.env.REACT_APP_SERVER_PAYMENT}/subscription`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        items: [{ id }],
-      }),
-    })
-      .then((res) => {
-        if (res.ok) return res.json();
-        return res.json().then((json) => Promise.reject(json));
-      })
-      .then(({ url }) => {
-        window.location = url;
-      })
-      .catch((e) => {
-        console.error(e.error);
-      });
+    try {
+      axios
+        .post(
+          `${process.env.REACT_APP_SERVER_PAYMENT}/subscription`,
+          JSON.stringify({
+            items: [{ id }],
+          })
+        )
+        .then((res) => {
+          if (res.ok) return res.json();
+          return res.json().then((json) => Promise.reject(json));
+        })
+        .then(({ url }) => {
+          window.location = url;
+        })
+        .catch(() => {
+          if (id === "price_1Ls4UvAB6MVrXxqzI5vvNVDZ")
+            window.location = "https://buy.stripe.com/eVa6pE1Rag7QbQY00i";
+          else if (id === "price_1LsSU1AB6MVrXxqz16rd5h3D")
+            window.location = "https://buy.stripe.com/eVa9BQcvO4p86wE7sN";
+        });
+    } catch (error) {
+      if (id === "price_1Ls4UvAB6MVrXxqzI5vvNVDZ")
+        window.location = "https://buy.stripe.com/eVa6pE1Rag7QbQY00i";
+      else if (id === "price_1LsSU1AB6MVrXxqz16rd5h3D")
+        window.location = "https://buy.stripe.com/eVa9BQcvO4p86wE7sN";
+    }
   };
   const handleOnePayment = ({ id }) => {
     setButtonDisable(true);
