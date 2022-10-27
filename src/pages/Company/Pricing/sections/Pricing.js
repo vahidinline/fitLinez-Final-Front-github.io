@@ -36,7 +36,7 @@ function Pricing() {
   };
   const handlePayment = ({ id }) => {
     setButtonDisable(true);
-    fetch(`${process.env.REACT_APP_SERVER_PAYMENT}/subscription`, {
+    fetch(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/subscription`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +56,28 @@ function Pricing() {
         console.error(e.error);
       });
   };
-
+  const handleOnePayment = ({ id }) => {
+    setButtonDisable(true);
+    fetch(`${process.env.REACT_APP_SERVER_PAYMENT_DEV}/create-checkout-session`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        items: [{ id }],
+      }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then(({ url }) => {
+        window.location = url;
+      })
+      .catch((e) => {
+        console.error(e.error);
+      });
+  };
   return (
     <MKBox component="section" py={{ xs: 0, lg: 7 }}>
       <MKBox
@@ -158,7 +179,7 @@ function Pricing() {
                     onClick:
                       tabType === "rial"
                         ? () => handlePaymentRial({ id: 1 })
-                        : () => handlePayment({ id: "price_1LsSUmAB6MVrXxqzPmpHaaGz" }),
+                        : () => handleOnePayment({ id: 1 }),
                     color: "info",
                     label: tabType === "rial" ? "خرید " : "Buy",
                   }}
