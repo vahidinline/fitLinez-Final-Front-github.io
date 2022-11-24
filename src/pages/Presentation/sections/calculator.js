@@ -18,16 +18,16 @@ function Calculator() {
   const [userData, setUserData] = useState({
     age: "",
     height: "",
-    gender: "female",
+    gender: "",
     weight: "",
-    activity: "active",
+    activity: "",
     neck: "",
     waist: "",
     hip: "",
     name: "",
     email: "",
   });
-
+  console.log(userData);
   // const [calorie, setCalorie] = useState();
 
   const genderList = [
@@ -67,7 +67,8 @@ function Calculator() {
       userData.weight &&
       userData.neck &&
       userData.waist &&
-      userData.hip
+      userData.hip &&
+      userData.activity
     ) {
       alert(`نتایج به ${userData.email}  ارسال خواهد شد. لطفا ایمیل خود را چک کنید`);
 
@@ -138,7 +139,7 @@ function Calculator() {
                 <Grid item xs={12} md={6}>
                   <MKTypography variant="caption">جنسیت</MKTypography>
 
-                  <Select name="جنسیت" onChange={handleInput} variant="standard">
+                  <Select name="gender" onChange={handleInput} variant="standard">
                     {genderList.map((genders) => (
                       <MenuItem key={genders.id} value={genders.name}>
                         {genders.alias}
@@ -149,7 +150,7 @@ function Calculator() {
                 <Grid item xs={12} md={6}>
                   <MKTypography variant="caption">میزان فعالیت</MKTypography>
 
-                  <Select name="فعالیت" onChange={handleInput} variant="standard">
+                  <Select name="activity" onChange={handleInput} variant="standard">
                     {activities.map((activity) => (
                       <MenuItem key={activity.id} value={activity.name}>
                         {activity.alias}
