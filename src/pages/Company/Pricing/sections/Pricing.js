@@ -31,8 +31,8 @@ function Pricing() {
   };
   const handlePaymentRial = ({ id }) => {
     if (id === 1) window.location = "https://zarinp.al/423697";
-    else if (id === 2) window.location = "https://zarinp.al/423704";
-    else if (id === 3) window.location = "https://zarinp.al/423709";
+    else if (id === 2) alert("در حال حاضر ظرفیت کلاسها تکمیل میباشد");
+    else if (id === 3) alert("در حال حاضر ظرفیت کلاسها تکمیل میباشد");
   };
   const handlePayment = ({ id }) => {
     setButtonDisable(true);
@@ -158,7 +158,7 @@ function Pricing() {
                   badge={{ color: "light", label: tabType === "rial" ? "مشاوره" : "Consultant" }}
                   price={{
                     currency: tabType === "rial" ? "تومان" : "€",
-                    value: tabType === "rial" ? "۷۲۵،۰۰۰" : 25,
+                    value: tabType === "rial" ? "۹۰۰٬۰۰۰" : 25,
                     type: tabType === "rial" ? "یک جلسه" : "One-Session",
                   }}
                   specifications={[
@@ -242,7 +242,7 @@ function Pricing() {
                   }}
                 />
               </Grid>
-              <Grid item xs={12} lg={4}>
+              {/* <Grid item xs={12} lg={4}>
                 <DefaultPricingCard
                   color="dark"
                   badge={{ color: "light", label: tabType === "rial" ? "دوره سه ماهه" : "3-Month" }}
@@ -287,12 +287,12 @@ function Pricing() {
                     onClick:
                       tabType === "rial"
                         ? () => handlePaymentRial({ id: 3 })
-                        : () => handlePayment({ id: "price_1LsSU1AB6MVrXxqz16rd5h3D" }),
+                        : () => handlePayment("price_1LsSU1AB6MVrXxqz16rd5h3D"),
                     color: "light",
                     label: tabType === "rial" ? "خرید " : "Buy",
                   }}
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
           </MKBox>
         </Container>
