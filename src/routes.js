@@ -49,6 +49,7 @@ import ContactUs from "layouts/pages/support/contact-us";
 import Privacy from "layouts/pages/support/privacy";
 import VirtualReality from "pages/Extra/VirtualReality";
 import PaymentGateWay from "./pages/Company/payment";
+import FormSimple from "./pages/Company/Form";
 
 // Account
 // import SignInBasicPage from "layouts/authentication/sign-in/basic";
@@ -122,6 +123,11 @@ const routes = [
             name: "محاسبه کالری",
             route: "/calculator",
             component: <VirtualReality />,
+          },
+          {
+            name: "فرم",
+            route: "/form",
+            component: <FormSimple />,
           },
         ],
       },
