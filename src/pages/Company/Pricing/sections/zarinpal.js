@@ -3,13 +3,18 @@ import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import Grid from "@mui/material/Grid";
+import { useLocation } from "react-router-dom";
 
 function PaymentZarinPal() {
   const handlePayment = async () => {
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const useremail = searchParams.get("email");
+    console.log(useremail);
     const response = await fetch("https://jobitta.com/payment/rial", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: "user@example.com", amount: 1000 }),
+      body: JSON.stringify({ email: useremail, amount: 3000000 }),
     });
 
     const data = await response.json();
