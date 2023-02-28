@@ -42,12 +42,15 @@ import Icon from "@mui/material/Icon";
 // Pages
 
 import AboutUs from "layouts/pages/company/about-us";
+import AppPricing from "pages/Company/Pricing/sections/appPricing";
+
 import Pricing from "layouts/pages/company/pricing";
 // import HelpCenter from "layouts/pages/support/help-center";
 import ContactUs from "layouts/pages/support/contact-us";
 // import Faq from "layouts/pages/support/faq";
 import Privacy from "layouts/pages/support/privacy";
 import VirtualReality from "pages/Extra/VirtualReality";
+import PaymentZarinPal from "pages/Company/Pricing/sections/zarinpal";
 import PaymentGateWay from "./pages/Company/payment";
 import FormSimple from "./pages/Company/Form";
 
@@ -118,6 +121,16 @@ const routes = [
             name: "دوره ها",
             route: "/pricing",
             component: <Pricing />,
+          },
+          {
+            name: " پرداخت اپ",
+            route: "/app-pricing",
+            component: <AppPricing />,
+          },
+          {
+            name: " پرداخت ریالی",
+            route: "/rial-pricing",
+            component: <PaymentZarinPal />,
           },
           {
             name: "محاسبه کالری",

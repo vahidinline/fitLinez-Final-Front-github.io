@@ -15,6 +15,7 @@ import MKTypography from "components/MKTypography";
 // Material Kit 2 PRO React examples
 import DefaultPricingCard from "examples/Cards/PricingCards/DefaultPricingCard";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 // import axios from "axios";
 // Imags
@@ -22,6 +23,10 @@ const bgImage =
   "https://images.unsplash.com/photo-1467541473380-93479a5a3ffa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2246&amp;q=80";
 
 function Pricing() {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const stripeId = searchParams.get("stripeId");
+  console.log(stripeId);
   const [activeTab, setActiveTab] = useState(0);
   const [tabType, setTabType] = useState("rial");
   const [buttonDisable, setButtonDisable] = useState(false);

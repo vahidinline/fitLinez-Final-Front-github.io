@@ -15,6 +15,7 @@ import Presentation from "layouts/pages/presentation";
 import routes from "routes";
 import SignUpForm from "pages/User";
 import Thankyou from "pages/User/thanks";
+import CallBack from "pages/Company/Pricing/sections/callback";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -47,6 +48,7 @@ export default function App() {
         <Route path="/" element={<Presentation />} />
         <Route path="/success" element={<SignUpForm />} />
         <Route path="/thankyou" element={<Thankyou />} />
+        <Route path="/callback" element={<CallBack />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </ThemeProvider>
