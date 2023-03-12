@@ -16,6 +16,7 @@ import routes from "routes";
 import SignUpForm from "pages/User";
 import Thankyou from "pages/User/thanks";
 import CallBack from "pages/Company/Pricing/sections/callback";
+import PaymentForClass from "pages/Company/Pricing/sections/payment";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -49,6 +50,7 @@ export default function App() {
         <Route path="/success" element={<SignUpForm />} />
         <Route path="/thankyou" element={<Thankyou />} />
         <Route path="/callback" element={<CallBack />} />
+        <Route path="/singlepayment" element={<PaymentForClass />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </ThemeProvider>

@@ -35,7 +35,7 @@ function Pricing() {
     setTabType(currentTarget.id);
   };
   const handlePaymentRial = ({ id }) => {
-    if (id === 1) window.location = "https://zarinp.al/423697";
+    if (id === 1) alert("در حال حاضر ظرفیت کلاسها تکمیل میباشد");
     else if (id === 2) alert("در حال حاضر ظرفیت کلاسها تکمیل میباشد");
     else if (id === 3) alert("در حال حاضر ظرفیت کلاسها تکمیل میباشد");
   };

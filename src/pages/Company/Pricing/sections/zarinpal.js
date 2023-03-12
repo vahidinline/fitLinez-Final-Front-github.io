@@ -6,11 +6,11 @@ import Grid from "@mui/material/Grid";
 import { useLocation } from "react-router-dom";
 
 function PaymentZarinPal() {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const useremail = searchParams.get("email");
+  console.log(useremail);
   const handlePayment = async () => {
-    const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
-    const useremail = searchParams.get("email");
-    console.log(useremail);
     const response = await fetch("https://jobitta.com/payment/rial", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -48,6 +48,9 @@ function PaymentZarinPal() {
         >
           <MKTypography variant="h2" fontWeight="700" mb={2}>
             پرداخت هزینه ماهیانه اپلیکیشن فیتلاینز
+          </MKTypography>
+          <MKTypography variant="h2" fontWeight="700" mb={2}>
+            {useremail}
           </MKTypography>
           <MKButton variant="contained" color="primary" onClick={handlePayment}>
             پرداخت ۳۰۰ هزار تومان
